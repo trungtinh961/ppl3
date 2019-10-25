@@ -8,9 +8,9 @@ class ASTGeneration(MCVisitor):
 
     def visitMctype(self,ctx:MCParser.MctypeContext):
         if ctx.INTTYPE():
-            return IntType()
+            return IntType
         else:
-            return VoidType()
+            return VoidType
 
     def visitBody(self,ctx:MCParser.BodyContext):
         return self.visit(ctx.funcall())
@@ -24,5 +24,4 @@ class ASTGeneration(MCVisitor):
             return self.visit(ctx.funcall())
         else:
             return IntLiteral(int(ctx.INTLIT().getText()))
-        
 
