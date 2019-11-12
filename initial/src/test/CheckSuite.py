@@ -98,3 +98,5 @@ class CheckSuite(unittest.TestCase):
         """
         expect = "Redeclared Variable: a"
         self.assertTrue(TestChecker.test(input,expect,408))
+
+    
