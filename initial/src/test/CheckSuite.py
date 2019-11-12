@@ -58,7 +58,6 @@ class CheckSuite(unittest.TestCase):
         input = """
             int a,b;
             int main(int a, int b) {                
-                if (a == 0) a = 1;
                 int b;
                 return 0;
             }
@@ -70,8 +69,7 @@ class CheckSuite(unittest.TestCase):
         input = """
             int a,b;
             int main(int a, int b) {                
-                if (a == 0) a = 1;
-                {
+               {
                     int a,b,c;
                     int a;
                 }
@@ -85,7 +83,6 @@ class CheckSuite(unittest.TestCase):
         input = """
             int a,b;
             int main(int a, int b) {                
-                if (a == 0) a = 1;
                 {
                     int a,b,c;
                     {
@@ -99,4 +96,67 @@ class CheckSuite(unittest.TestCase):
         expect = "Redeclared Variable: a"
         self.assertTrue(TestChecker.test(input,expect,408))
 
+    def test_Undeclared_function_level_2(self):
+        input = """
+            int a,b;
+            int main(int a, int b) {                
+                {
+                    int a,b,c;
+                    {
+                        int a,b,c;
+                        foo();
+                    }
+                }
+                return 0;
+            }
+        """
+        expect = "Undeclared Function: foo"
+        self.assertTrue(TestChecker.test(input,expect,409))
+
+    def test_Undeclared_functionStmt(self):
+        input = """
+            int a,b;
+            int main(int a, int b) {                
+                {
+                    foo();
+                }
+                return 0;
+            }
+        """
+        expect = "Undeclared Function: foo"
+        self.assertTrue(TestChecker.test(input,expect,410))
+
+    def test_TypeMismatchInStmt_nonePara(self):
+        input = """
+            int a,b;
+            int foo(int a) {
+                return 0;
+            }
+            int main(int a, int b) {                
+                {
+                    foo();
+                }
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[])"
+        self.assertTrue(TestChecker.test(input,expect,411))
+
+    def test_TypeMismatchInStmt_manyPara(self):
+        input = """
+            int a,b;
+            int foo(int a) {
+                return 0;
+            }
+            int main(int a, int b) {                
+                {
+                    foo(a,b);
+                }
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[Id(a),Id(b)])"
+        self.assertTrue(TestChecker.test(input,expect,412))
+
+    
     

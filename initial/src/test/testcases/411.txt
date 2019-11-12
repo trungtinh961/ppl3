@@ -1,12 +1,11 @@
 
             int a,b;
+            int foo(int a) {
+                return 0;
+            }
             int main(int a, int b) {                
                 {
-                    int a,b,c;
-                    {
-                        int a,b,c;
-                        int a;
-                    }
+                    foo();
                 }
                 return 0;
             }
