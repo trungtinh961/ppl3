@@ -82,9 +82,45 @@ class StaticChecker(BaseVisitor,Utils):
         
 
     def visitFuncDecl(self,ast, c): 
-         return self.checkRedeclared(Symbol(ast.name.name,MType([x.varType for x in ast.param],ast.returnType)),Function(),c[0])
+        __lstLocal = []
+        for i in ast.param:
+            if self.lookup(self.getName(i), __lstLocal, lambda x: x.name):
+                raise Redeclared(Parameter(), self.getName(i))
+            else:
+                __lstLocal.insert(0, Symbol(self.getName(i),self.getType(i)))
+        res = self.visit(ast.body,[__lstLocal,c[1]])
+
+
+        return self.checkRedeclared(Symbol(ast.name.name,MType([x.varType for x in ast.param],ast.returnType)),Function(),c[0])
 
    
+    def visitBlock(self,ast,c):
+        __lstLocal = c[0]
+        for i in filter(lambda x: isinstance(x, VarDecl),ast.member):
+            if self.lookup(i.variable, __lstLocal, lambda x: x.name):
+                raise Redeclared(Variable(), i.variable)
+            else:
+                __lstLocal.insert(0, Symbol(self.getName(i),self.getType(i)))
+        
+        for i in filter(lambda x: isinstance(x, Block),ast.member):
+            res = self.visit(i,[[],__lstLocal+c[1]])
+
+
+
+
+        return  __lstLocal + c[1] #all decl use to check undecl
+
+
+
+
+
+
+
+
+
+
+
+
     # def visitCallExpr(self, ast, c): 
     #     at = [self.visit(x,(c[0],False)) for x in ast.param]
         

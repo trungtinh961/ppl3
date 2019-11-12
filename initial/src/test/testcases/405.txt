@@ -1,1 +1,7 @@
-Program([FuncDecl(Id(main),[],IntType,Block([CallExpr(Id(putIntLn),[])]))])
+
+            int a,b;
+            int a(int a, int a) {}
+            int main(int a) {
+                return 0;
+            }
+        
