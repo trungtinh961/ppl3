@@ -1,0 +1,12 @@
+
+            int a,b;
+            int foo(int a) {
+                return 0;
+            }
+            int main(float a, int b) {                
+                {
+                    foo(a);
+                }
+                return 0;
+            }
+        

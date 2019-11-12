@@ -149,7 +149,6 @@ class CallExpr(Expr):
 class Literal(Expr):
     __metaclass__ = ABCMeta
     pass
-
 @dataclass
 class IntLiteral(Literal):
     value:int
@@ -159,7 +158,6 @@ class IntLiteral(Literal):
 
     def accept(self, v, param):
         return v.visitIntLiteral(self, param)
-
 @dataclass
 class FloatLiteral(Literal):
     value:float

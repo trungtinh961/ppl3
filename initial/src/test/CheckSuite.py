@@ -158,5 +158,23 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Statement: CallExpr(Id(foo),[Id(a),Id(b)])"
         self.assertTrue(TestChecker.test(input,expect,412))
 
+    def test_TypeMismatchInStmt_partype(self):
+        input = """
+            int a,b;
+            int foo(int a) {
+                return 0;
+            }
+            int main(float a, int b) {                
+                {
+                    foo(a);
+                }
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[Id(a)])"
+        self.assertTrue(TestChecker.test(input,expect,413))
+
     
+
+
     
