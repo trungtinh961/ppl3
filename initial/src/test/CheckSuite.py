@@ -46,7 +46,7 @@ class CheckSuite(unittest.TestCase):
     def test_redeclared_parameter(self):
         input = """
             int a,b;
-            int a(int a, int a) {}
+            int c(int a, int a) {}
             int main(int a) {
                 return 0;
             }
@@ -139,7 +139,7 @@ class CheckSuite(unittest.TestCase):
                 return 0;
             }
         """
-        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[])"
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[])"
         self.assertTrue(TestChecker.test(input,expect,411))
 
     def test_TypeMismatchInStmt_manyPara(self):
@@ -155,7 +155,7 @@ class CheckSuite(unittest.TestCase):
                 return 0;
             }
         """
-        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[Id(a),Id(b)])"
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a),Id(b)])"
         self.assertTrue(TestChecker.test(input,expect,412))
 
     def test_TypeMismatchInStmt_partype(self):
@@ -171,9 +171,25 @@ class CheckSuite(unittest.TestCase):
                 return 0;
             }
         """
-        expect = "Type Mismatch In Statement: CallExpr(Id(foo),[Id(a)])"
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])"
         self.assertTrue(TestChecker.test(input,expect,413))
 
+    def test_TypeMismatchInStmt_partype(self):
+        input = """
+            int a,b;
+            int foo(int a) {
+                return 0;
+            }
+            int main(float a, int b) {                
+                {
+                    foo(a);
+                }
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])"
+        self.assertTrue(TestChecker.test(input,expect,414))
+    
     
 
 

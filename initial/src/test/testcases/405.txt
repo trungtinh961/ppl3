@@ -1,6 +1,6 @@
 
             int a,b;
-            int a(int a, int a) {}
+            int c(int a, int a) {}
             int main(int a) {
                 return 0;
             }
