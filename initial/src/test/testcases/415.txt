@@ -1,0 +1,6 @@
+
+            int a,b;
+            int main(float a, int b) {                
+                c = a + b
+            }
+        

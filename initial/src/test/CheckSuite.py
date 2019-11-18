@@ -158,37 +158,55 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a),Id(b)])"
         self.assertTrue(TestChecker.test(input,expect,412))
 
-    def test_TypeMismatchInStmt_partype(self):
+    def test_TypeMismatchInStmt_partype_floatint(self):
         input = """
             int a,b;
             int foo(int a) {
                 return 0;
             }
             int main(float a, int b) {                
-                {
-                    foo(a);
-                }
+                foo(a);
                 return 0;
             }
         """
         expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])"
         self.assertTrue(TestChecker.test(input,expect,413))
 
-    def test_TypeMismatchInStmt_partype(self):
+    def test_TypeMismatchInStmt_partype_intbool(self):
         input = """
             int a,b;
             int foo(int a) {
                 return 0;
             }
-            int main(float a, int b) {                
-                {
-                    foo(a);
-                }
+            int main(boolean a, int b) {                
+                foo(a);
                 return 0;
             }
         """
         expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])"
         self.assertTrue(TestChecker.test(input,expect,414))
+
+    def test_Undeclared_IdLHS(self):
+        input = """
+            int a,b;
+            int main(float a, int b) {                
+                c = a + b
+            }
+        """
+        expect = "Undeclared Identifier: c"
+        self.assertTrue(TestChecker.test(input,expect,415))
+
+    def test_Undeclared_IdRHS(self):
+        input = """
+            int a,b;
+            int main(float a, int b) {                
+                a = c + b
+            }
+        """
+        expect = "Undeclared Identifier: c"
+        self.assertTrue(TestChecker.test(input,expect,416))
+
+    
     
     
 

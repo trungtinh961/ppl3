@@ -83,7 +83,7 @@ class StaticChecker(BaseVisitor,Utils):
 
         at = [self.visit(x, (lstDecl, self.lstFunc)) for x in ast.decl]
 
-        return at
+        return ''
 
     def visitVarDecl(self,ast,c):
         return False
@@ -122,15 +122,24 @@ class StaticChecker(BaseVisitor,Utils):
         res = self.lookup(ast.method.name,c[0],lambda x: x.name)
         if res is None or not type(res.mtype) is MType:
             raise Undeclared(Function(),ast.method.name)
-        elif len(res.mtype.partype) != len(at) or True in [type(a) != type(b) for a,b in zip(at,res.mtype.partype)]:
+        elif len(res.mtype.partype) != len(at):
             raise TypeMismatchInExpression(ast)
         else:
             self.lstCall.append(res)
+            for left,right in zip(res.mtype.partype, at):
+                if type(left) is ArrayPointerType and type(right) in [ArrayPointerType,ArrayType]:
+                    if type(left.eleType) != type(right.eleType):
+                        raise TypeMismatchInExpression(ast)
+                elif type(left) != type(right):
+                    if not (type(left), type(right)) == (FloatType, IntType):
+                        raise TypeMismatchInExpression(ast)
+                else:
+                    raise TypeMismatchInExpression(ast)
         return res.mtype.rettype
     
     def visitId(self,ast,c):
         at = self.lookup(ast.name,c[0],lambda x: x.name)
-        if at is None or type(isDeclared.mtype) is MType:
+        if at is None or type(at.mtype) is MType:
             raise Undeclared(Identifier(),ast.name)
         else:
             return at.mtype 
@@ -195,15 +204,24 @@ class StaticChecker(BaseVisitor,Utils):
                 return BoolType()
             else:
                 raise TypeMismatchInExpression(ast)
-
         else:
             raise TypeMismatchInExpression(ast)
 
 
+    def visitUnaryOp(self, ast, c):
+        expr = self.visit(ast.body, c)
+        if ast.op == '-':
+            if type(expr) in [IntType, FloatType]:
+                return expr
+            else:
+                raise TypeMismatchInExpression(ast)
+        elif ast.op == '!':
+            if type(expr) is BoolType:
+                return BoolType()
+            else:
+                raise TypeMismatchInExpression(ast)
+        else: raise TypeMismatchInExpression(ast)
 
-
-    # def visitUnaryOp(self,ast,c):
-    #     return
 
     # def visitIf(self,ast,c):
     #     return 

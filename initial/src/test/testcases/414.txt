@@ -3,7 +3,7 @@
             int foo(int a) {
                 return 0;
             }
-            int main(float a, int b) {                
+            int main(boolean a, int b) {                
                 foo(a);
                 return 0;
             }
