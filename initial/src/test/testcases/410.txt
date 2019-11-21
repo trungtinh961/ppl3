@@ -1,9 +1,7 @@
 
-            int a,b;
-            int main(int a, int b) {                
-                {
-                    foo();
-                }
-                return 0;
-            }
+        float tfloat;
+        string foo2(){return "10051999";}
+        int main(int argv, string argc, boolean argv){
+            return 0;
+        }
         

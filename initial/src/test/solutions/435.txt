@@ -1,0 +1,1 @@
+Type Mismatch In Statement: BinaryOp(=,Id(argc),BooleanLiteral(true))

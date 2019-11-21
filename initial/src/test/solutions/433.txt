@@ -1,0 +1,1 @@
+Type Mismatch In Statement: BinaryOp(=,StringLiteral(str),IntLiteral(0))

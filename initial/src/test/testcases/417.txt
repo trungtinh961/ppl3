@@ -1,0 +1,11 @@
+
+        float tfloat;
+        float foo2(){
+            float tfloat;
+            return 1.e-3;
+        }
+        int main(int argc, string args, boolean argv, float flo){
+            argc = argc + foo(1);
+            return 0;
+        }
+        

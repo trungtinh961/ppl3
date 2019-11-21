@@ -1,1 +1,8 @@
-int main() {foo();}
+
+        int main, entry[10];
+        int mai1n(int argv, string argc){
+            return 0;
+        }
+        string str, s;
+        float tfloat;
+        

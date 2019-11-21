@@ -1,10 +1,12 @@
 
-            int a,b;
-            int foo(int a) {
-                return 0;
-            }
-            int main(boolean a, int b) {                
-                foo(a);
-                return 0;
-            }
+        float tfloat;
+        string foo2(){
+            float tfloat;
+            return "10051999";
+        }
+        int main(int argc, string args, boolean argv, float flo){
+            int argc, argc[2];
+            foo2();
+            return 0;
+        }
         

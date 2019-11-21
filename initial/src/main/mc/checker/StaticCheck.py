@@ -57,7 +57,6 @@ class StaticChecker(BaseVisitor,Utils):
             else:
                 return Symbol(name, decl.varType)
 
-
     def __init__(self,ast):
         self.ast = ast
         self.lstFunc = []
@@ -70,7 +69,7 @@ class StaticChecker(BaseVisitor,Utils):
         lstDecl = c.copy()
         for decl in ast.decl:
             temp = self.checkRedeclared(decl,lstDecl,False)
-            lstDecl.append(temp)
+            lstDecl.insert(0,temp)
             if type(decl) is FuncDecl:
                 self.lstFunc.append(temp)        
         entryPoint = self.lookup("main", self.lstFunc, lambda x: x.name)
@@ -93,7 +92,7 @@ class StaticChecker(BaseVisitor,Utils):
         for param in ast.param:
             res = self.checkRedeclared(param,lstLocal,True)
             lstLocal.append(res)
-            env.append(res)
+            env.insert(0,res)
         hasReturn = self.visit(ast.body, (env, lstLocal, False, ast.returnType))
         if (not hasReturn) and not (type(ast.returnType) is VoidType):
             raise FunctionNotReturn(ast.name.name)
@@ -108,7 +107,7 @@ class StaticChecker(BaseVisitor,Utils):
             if i in lstVarDecl:
                 res = self.checkRedeclared(i,lstLocal,False)
                 lstLocal.append(res)
-                env.append(res)            
+                env.insert(0,res)
             else:
                 at = self.visit(i,(env,[],c[2],c[3])) # c = (global,[],isLoop,rettype)
                 if type(at) is bool and at == True:
@@ -118,8 +117,10 @@ class StaticChecker(BaseVisitor,Utils):
     def visitCallExpr(self, ast, c): 
         at = [self.visit(x,(c[0],False)) for x in ast.param]        
         res = self.lookup(ast.method.name,c[0],lambda x: x.name)
-        if res is None or not type(res.mtype) is MType:
+        if res is None:
             raise Undeclared(Function(),ast.method.name)
+        elif not type(res.mtype) is MType:
+            raise TypeMismatchInExpression(ast)
         elif len(res.mtype.partype) != len(at):
             raise TypeMismatchInExpression(ast)
         else:
@@ -159,8 +160,8 @@ class StaticChecker(BaseVisitor,Utils):
                     return FloatType()
                 else:
                     raise TypeMismatchInStatement(ast)
-            elif not type(left) in [Id, ArrayCell]:
-                raise NotLeftValue(ast)
+            elif not type(ast.left) in [Id, ArrayCell]:
+                raise NotLeftValue(ast.left)
             else:
                 return left
 
@@ -193,7 +194,7 @@ class StaticChecker(BaseVisitor,Utils):
                 raise TypeMismatchInExpression(ast)
 
         elif ast.op in ['&&','||']:
-            if type(left) is Boolean and type(right) is Boolean:
+            if type(left) is BoolType and type(right) is BoolType:
                 return BoolType()
             else:
                 raise TypeMismatchInExpression(ast)
@@ -212,16 +213,22 @@ class StaticChecker(BaseVisitor,Utils):
                 return BoolType()
             else:
                 raise TypeMismatchInExpression(ast)
-        else: raise TypeMismatchInExpression(ast)
+        else: 
+            raise TypeMismatchInExpression(ast)
 
     def visitIf(self,ast,c):
         exp = ast.expr
         thenStmt = ast.thenStmt
         elseStmt = ast.elseStmt
-
         if not type(self.visit(exp, c)) is BoolType:
             raise TypeMismatchInStatement(ast)
         thenReturn = self.visit(thenStmt,c)
+        if not elseStmt is None:
+            elseReturn = self.visit(elseStmt,c)
+            if type(thenStmt) is bool and type(elseStmt) is bool:
+                return (thenStmt and elseStmt)
+            else:
+                return False
         return False
 
     def visitFor(self,ast,c):
@@ -229,11 +236,13 @@ class StaticChecker(BaseVisitor,Utils):
         expr2 = self.visit(ast.expr2,c)
         expr3 = self.visit(ast.expr3,c)
         loop = self.visit(ast.loop,(c[0],c[1],True,c[3]))
-
         if type(expr1) != IntType and type(expr2) != BoolType and type(expr3) != IntType:
             raise TypeMismatchInStatement(ast)
-
-        return 
+        # if type(loop) is bool and loop is True:
+        #     return True
+        # else:
+        #     return False
+        return False
 
     def visitDowhile(self,ast,c):
         exp = self.visit(ast.exp, c)
@@ -242,7 +251,7 @@ class StaticChecker(BaseVisitor,Utils):
         hasReturn = False
         for x in ast.sl:
             at = self.visit(x, (c[0], c[1], True, c[3]))
-            if type(at) is bool and at == True:
+            if type(at) is bool and at is True:
                 hasReturn = True
         return hasReturn
 
@@ -281,7 +290,8 @@ class StaticChecker(BaseVisitor,Utils):
                         return True
                     else: 
                         raise TypeMismatchInStatement(ast)
-                else: return True
+                else: 
+                    return True
 
     def visitIntLiteral(self,ast, c): 
         return IntType()
