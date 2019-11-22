@@ -1,0 +1,26 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int LongLML;
+            {
+                int f; boolean i;
+                {
+                    f = f%10;
+                }
+                i = true&&false||(10<=5);
+            }
+            return i;
+        }
+        float foo(){
+            if (true){
+                return 0;
+            }
+            else{
+                return 1;
+            }
+            LongLML = 10;
+        }
+        

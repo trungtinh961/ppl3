@@ -1,0 +1,1 @@
+Type Mismatch In Statement: For(IntLiteral(1);IntLiteral(1);IntLiteral(1);BinaryOp(=,ArrayCell(Id(argc),IntLiteral(1)),UnaryOp(-,IntLiteral(10))))

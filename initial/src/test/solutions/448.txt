@@ -1,0 +1,1 @@
+Type Mismatch In Statement: If(BinaryOp(+,ArrayCell(Id(argc),IntLiteral(1)),IntLiteral(10)),Block([Return(Id(tfloat))]))

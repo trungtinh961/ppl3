@@ -1,1 +1,1 @@
-Undeclared Identifier: b
+Not Left Value: BinaryOp(+,Id(b),Id(c))

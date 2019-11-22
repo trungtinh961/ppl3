@@ -1,0 +1,12 @@
+
+        float tfloat[4];
+        float[] Function(float a[], float b[]){return tfloat;}
+
+        float[] main(int argc[], string args, boolean argv, float flo){
+
+            Function(tfloat, Function(tfloat, tfloat));
+            
+            continue;
+            return tfloat;
+        }
+        

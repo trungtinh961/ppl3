@@ -1,0 +1,11 @@
+
+        void foo(){}
+        void foo1(){foo();}
+        void foo2(){foo1();}
+        void foo3(){foo2(); foo3();}
+        int main(){
+            do
+                return 1;
+            while(true);
+        }
+        

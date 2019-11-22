@@ -19,6 +19,32 @@ class Symbol:
         self.mtype = mtype
         self.value = value
 
+def getTypeBinaryExp(left, right):
+    tupleOfType = (type(left), type(right))
+    return IntType() if tupleOfType == (IntType, IntType) else FloatType() if tupleOfType in [(IntType, FloatType), (FloatType, IntType), (FloatType, FloatType)] else BoolType() if tupleOfType == (BoolType, BoolType) else None
+
+def canPass(left, right):
+    if type(left) is ArrayPointerType:
+        return True if (type(right) in [ArrayPointerType, ArrayType]) and (type(left.eleType) == type(right.eleType)) else False
+    else:
+        return True if type(left) == type(right) else True if (type(left), type(right)) == (FloatType, IntType) else False
+
+def getEnv(env, localDecl):
+    for i in range(len(env)):
+        if env[i].name == localDecl.name:
+            env.pop(i)
+            break
+    env.append(localDecl)
+    return env
+
+def isTrue(x):
+    return x if type(x) is bool else False
+
+def checkIn(element, listElement, returnValue, ast):
+    if element in listElement:
+        return returnValue
+    else:
+        raise TypeMismatchInExpression(ast)
 
 class StaticChecker(BaseVisitor,Utils):
 
@@ -93,8 +119,8 @@ class StaticChecker(BaseVisitor,Utils):
             res = self.checkRedeclared(param,lstLocal,True)
             lstLocal.append(res)
             env.insert(0,res)
-        hasReturn = self.visit(ast.body, (env, lstLocal, False, ast.returnType))
-        if (not hasReturn) and not (type(ast.returnType) is VoidType):
+        hasReturn = self.visit(ast.body, (env, lstLocal, False, ast.returnType, ast.name.name))
+        if not hasReturn and not (type(ast.returnType) is VoidType):
             raise FunctionNotReturn(ast.name.name)
         return hasReturn
 
@@ -102,20 +128,19 @@ class StaticChecker(BaseVisitor,Utils):
         lstLocal = c[1].copy()
         env = c[0].copy()
         hasReturn = False
-        lstVarDecl = filter(lambda x: isinstance(x,VarDecl),ast.member)
         for i in ast.member:
-            if i in lstVarDecl:
+            if type(i) is VarDecl:
                 res = self.checkRedeclared(i,lstLocal,False)
                 lstLocal.append(res)
                 env.insert(0,res)
             else:
-                at = self.visit(i,(env,[],c[2],c[3])) # c = (global,[],isLoop,rettype)
+                at = self.visit(i,(env,[],c[2],c[3],c[4])) # c = (global,[],isLoop,rettype)
                 if type(at) is bool and at == True:
                     hasReturn = True
         return hasReturn
 
     def visitCallExpr(self, ast, c): 
-        at = [self.visit(x,(c[0],False)) for x in ast.param]        
+        at = [self.visit(x,c) for x in ast.param]        
         res = self.lookup(ast.method.name,c[0],lambda x: x.name)
         if res is None:
             raise Undeclared(Function(),ast.method.name)
@@ -124,7 +149,8 @@ class StaticChecker(BaseVisitor,Utils):
         elif len(res.mtype.partype) != len(at):
             raise TypeMismatchInExpression(ast)
         else:
-            self.lstCall.append(res)
+            if ast.method.name != c[4]:
+                self.lstCall.append(res)
             for a,b in zip(res.mtype.partype, at):
                 if type(a) is ArrayPointerType and type(b) in [ArrayPointerType,ArrayType]:
                     if type(a.eleType) != type(b.eleType):
@@ -153,15 +179,15 @@ class StaticChecker(BaseVisitor,Utils):
         left = self.visit(ast.left,c)
         right = self.visit(ast.right,c)
         if ast.op is '=':
-            if type(left) in [VoidType, ArrayType, ArrayPointerType]:
+            if not type(ast.left) in [Id, ArrayCell]:
+                raise NotLeftValue(ast.left)
+            elif type(left) in [VoidType, ArrayType, ArrayPointerType]:
                 raise TypeMismatchInExpression(ast)
             elif type(left) != type(right):
                 if type(left) is FloatType and type(right) is IntType:
                     return FloatType()
                 else:
-                    raise TypeMismatchInStatement(ast)
-            elif not type(ast.left) in [Id, ArrayCell]:
-                raise NotLeftValue(ast.left)
+                    raise TypeMismatchInExpression(ast)
             else:
                 return left
 
@@ -182,7 +208,7 @@ class StaticChecker(BaseVisitor,Utils):
         elif ast.op in ['==','!=']:
             if type(left) is IntType and type(right) is IntType:
                 return BoolType()
-            if type(left) is Boolean and type(right) is Boolean:
+            if type(left) is BoolType and type(right) is BoolType:
                 return BoolType()
             else:
                 raise TypeMismatchInExpression(ast)
@@ -223,26 +249,19 @@ class StaticChecker(BaseVisitor,Utils):
         if not type(self.visit(exp, c)) is BoolType:
             raise TypeMismatchInStatement(ast)
         thenReturn = self.visit(thenStmt,c)
-        if not elseStmt is None:
+        if elseStmt is None:
+            return False
+        else:
             elseReturn = self.visit(elseStmt,c)
-            if type(thenStmt) is bool and type(elseStmt) is bool:
-                return (thenStmt and elseStmt)
-            else:
-                return False
-        return False
-
+            return thenReturn and elseReturn
+            
     def visitFor(self,ast,c):
         expr1 = self.visit(ast.expr1,c)
         expr2 = self.visit(ast.expr2,c)
-        expr3 = self.visit(ast.expr3,c)
-        loop = self.visit(ast.loop,(c[0],c[1],True,c[3]))
-        if type(expr1) != IntType and type(expr2) != BoolType and type(expr3) != IntType:
+        expr3 = self.visit(ast.expr3,c)        
+        if (type(expr1), type(expr2), type(expr3)) != (IntType, BoolType, IntType):
             raise TypeMismatchInStatement(ast)
-        # if type(loop) is bool and loop is True:
-        #     return True
-        # else:
-        #     return False
-        return False
+        self.visit(ast.loop, (c[0], c[1], True, c[3], c[4]))
 
     def visitDowhile(self,ast,c):
         exp = self.visit(ast.exp, c)
@@ -250,7 +269,7 @@ class StaticChecker(BaseVisitor,Utils):
             raise TypeMismatchInStatement(ast)
         hasReturn = False
         for x in ast.sl:
-            at = self.visit(x, (c[0], c[1], True, c[3]))
+            at = self.visit(x, (c[0], c[1], True, c[3], c[4]))
             if type(at) is bool and at is True:
                 hasReturn = True
         return hasReturn

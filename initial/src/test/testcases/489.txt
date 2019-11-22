@@ -1,0 +1,16 @@
+
+        void foo(){}
+        void foo1(){foo();}
+        void foo2(boolean f){foo2(foo3());}
+        boolean foo3(){return foo3();}
+        int main(){
+            foo1();
+            float main;
+            main = 1e10-10e1;
+            string foo2;
+            foo2(true);
+            do
+                return 1;
+            while(true);
+        }
+        

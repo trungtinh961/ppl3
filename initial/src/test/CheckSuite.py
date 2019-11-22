@@ -3,6 +3,7 @@ from TestUtils import TestChecker
 from AST import *
 
 class CheckSuite(unittest.TestCase):
+#{
     # def test_no_entry_point(self):
     #     input = """
     #         int a,b;
@@ -205,282 +206,477 @@ class CheckSuite(unittest.TestCase):
     #     """
     #     expect = "Undeclared Identifier: c"
     #     self.assertTrue(TestChecker.test(input,expect,416))
+#}
 
 
-    def test_unrecha_funct_(self):
-        """test unrechable function declared"""
+        
+    def test_deep_block_declared_5th(self):
+        """test break stmt outside loop deep block"""
         input = """
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            return 1.e-3;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int LongLML;
+            {
+                int f; boolean i;
+                {
+                    {{{{{{{{string str;return f;}}}}}}}}
+                }
+                i = true&&false||(10<=5);
+            }
+            break;
         }
-        boolean foo(){
-            return true;
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,481))
+        
+    def test_deep_block_do_1st(self):
+        """test deep do-while if-else"""
+        input = """
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do 
+            do 
+            do 
+            if(true) return 0; else return 1; 
+            while(true);
+            while(true);
+            while(true);
         }
-        boolean foo1(){
-            return false;
+        int foo(){
+            return Long;
         }
-        int main(int argc, string args, boolean argv, float flo){
-            if(1==1){
+        """
+        expect = "Undeclared Identifier: Long"
+        self.assertTrue(TestChecker.test(input,expect,482))
+        
+    def test_deep_block_do_2rd(self):
+        """test function not return with float Epointer"""
+        input = """
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }while(true);
+            return 1e4;
+        }
+        void foo(){
+            return ;
+        }
+        """
+        expect = "Type Mismatch In Statement: Return(FloatLiteral(10000.0))"
+        self.assertTrue(TestChecker.test(input,expect,483))
+        
+    def test_deep_block_do_3nd(self):
+        """test continue stmt outside loop deep block"""
+        input = """
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }while(true);
+            return 1;
+        }
+        void foo(){
+            continue;
+            return ;
+        }
+        """
+        expect = "Continue Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,484))
+        
+    def test_deep_block_do_4th(self):
+        """test break stmt outside loop deep block"""
+        input = """
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                    }
+                }
+            }while(true);
+            break;
+            return 1;
+        }
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,485))
+        
+    def test_deep_block_do_5th(self):
+        """test stmt for expr"""
+        input = """
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            for(10;true;1e1){
+                "haha";
+            }
+        }
+        """
+        expect = "Type Mismatch In Statement: For(IntLiteral(10);BooleanLiteral(true);FloatLiteral(10.0);Block([StringLiteral(haha)]))"
+        self.assertTrue(TestChecker.test(input,expect,486))
+        
+    def test_unrechable_func_1st(self):
+        """test unrechable function recursive"""
+        input = """
+        void foo(){}
+        void foo1(){foo();}
+        void foo2(){foo1();}
+        void foo3(){foo2(); foo3();}
+        int main(){
+            do
+                return 1;
+            while(true);
+        }
+        """
+        expect = "Unreachable Function: foo3"
+        self.assertTrue(TestChecker.test(input,expect,487))
+        
+    def test_unrechable_func_2nd(self):
+        """test call exp  failed"""
+        input = """
+        void foo(){}
+        void foo1(){foo();}
+        void foo2(){foo2();}
+        void foo3(){foo3();}
+        int main(){
+            foo1();
+            foo3();
+            float foo3;
+            foo3();
+            do
+                return 1;
+            while(true);
+        }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo3),[])"
+        self.assertTrue(TestChecker.test(input,expect,488))
+        
+    def test_unrechable_func_3rd(self):
+        """test call stmt failed"""
+        input = """
+        void foo(){}
+        void foo1(){foo();}
+        void foo2(boolean f){foo2(foo3());}
+        boolean foo3(){return foo3();}
+        int main(){
+            foo1();
+            float main;
+            main = 1e10-10e1;
+            string foo2;
+            foo2(true);
+            do
+                return 1;
+            while(true);
+        }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo2),[BooleanLiteral(true)])"
+        self.assertTrue(TestChecker.test(input,expect,489))
+
+    def test_all_check_1st(self):
+        """test large code example expression failed 1st"""
+        input = """
+        void println(string str){}
+        void save(int len){}
+        void main(){
+            int TimeRemaining,len,Per;
+                    println("How many incorrect times do you want to get? ");
+                    save(TimeRemaining);
+                    println("what minimum word lengh do you want? ");
+                    save(len);
+                    //fstream f;
+                    //f.open("input.txt",ios::in);
+                    string data;
+                    string List[255];
+                    int NumOfWord,n;
+                    List[-1] = "1005199"&&Per;
+                    NumOfWord=0;
+            }
+        """
+        expect = "Type Mismatch In Expression: BinaryOp(&&,StringLiteral(1005199),Id(Per))"
+        self.assertTrue(TestChecker.test(input,expect,490))
+
+    def test_all_check_2nd(self):
+        """test large code example expression failed 2nd"""
+        input = """
+        void println(string str){}
+        void save(int len){}
+        void getline(int l, int data){}
+        void main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                        getline(f,data);
+                        if (data!=1) List[NumOfWord]=data;
+
+                    }while(data!=1);
+        }
+        """
+        expect = "Type Mismatch In Expression: BinaryOp(=,ArrayCell(Id(List),Id(NumOfWord)),Id(data))"
+        self.assertTrue(TestChecker.test(input,expect,491))
+
+    def test_all_check_3rd(self):
+        """test large code example stmt failed 3rd"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        void main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                return 0;
+            }
+        }
+        """
+        expect = "Type Mismatch In Statement: Return(IntLiteral(0))"
+        self.assertTrue(TestChecker.test(input,expect,492))
+
+    def test_all_check_4th(self):
+        """test large code example break failed 4th"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        void main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                return;
+            }
+            if(true){
+                break;
+            }
+        }
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,493))
+
+    def test_all_check_5th(self):
+        """test large code example return failed 5th"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
+                return 0;
+            }
+            for(1;true;1)
+                return 0;
+        }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,494))
+
+    def test_all_check_6th(self):
+        """test large code example declared failed 6th"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
                 return 0;
             }
             else{
-                if(true){
-                    foo();
-                }
-                else{
-                    foo1();
-                }
                 return 0;
             }
+            int flo;
         }
         """
-        expect = "Unreachable Function: foo2"
-        self.assertTrue(TestChecker.test(input,expect,424))
-        
-    def test_unrecha_funct_2(self):
-        """test unrechable function declared 2nd"""
+        expect = "Redeclared Variable: flo"
+        self.assertTrue(TestChecker.test(input,expect,495))
+
+    def test_all_check_7th(self):
+        """test large code example left expression failed 7th"""
         input = """
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            foo1(foo());
-            boo = foo() && foo1(foo());
-            return 1.e-3;
-        }
-        boolean foo(){
-            return foo1(foo());
-        }
-        boolean foo1(boolean b){
-            return false;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            if(1==1){
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
                 return 0;
             }
             else{
-                if(true){
-                    foo();
-                }
-                else{
-                    foo1(foo());
-                }
                 return 0;
             }
+            10.1=-10;
         }
         """
-        expect = "Unreachable Function: foo2"
-        self.assertTrue(TestChecker.test(input,expect,425))
-        
-    def test_left_value_failed2(self):
-        """test left value content id"""
+        expect = "Not Left Value: FloatLiteral(10.1)"
+        self.assertTrue(TestChecker.test(input,expect,496))
+
+    def test_all_check_8th(self):
+        """test large code example left undeclared indentifier failed 8th"""
         input = """
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            return 1.e-3;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            foo2();
-            int c,b;
-            b + c = 1;
-            return 0;
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
+                return 0;
+            }
+            else{
+                return 0;
+            }
+            floas;
+
         }
         """
-        expect = "Not Left Value: BinaryOp(+,Id(b),Id(c))"
-        self.assertTrue(TestChecker.test(input,expect,428))
-        
-    
-        
-    # def test_left_value_failed5(self):
-    #     """test left value content expression with call """
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.e-3;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         int some;
-    #         foo2() + some = 0;
-    #         return 0;
-    #     }
-    #     """
-    #     expect = "Not Left Value: BinaryOp(+,CallExpr(Id(foo2),[]),Id(some))"
-    #     self.assertTrue(TestChecker.test(input,expect,431))
-        
-    # def test_stmt_miss_mat1ch(self):
-    #     """test left value statement return"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return true;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         return 0;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Statement: Return(BooleanLiteral(true))"
-    #     self.assertTrue(TestChecker.test(input,expect,432))
-        
-    # def test_stmt_m2iss_mat1ch(self):
-    #     """test left value exp string type"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         "str" = 0;
-    #         return 0;
-    #     }
-    #     """
-    #     expect = "Not Left Value: StringLiteral(str)"
-    #     self.assertTrue(TestChecker.test(input,expect,433))
-        
-    # def test_stmt_miss2_mat1ch(self):
-    #     """test left value exp booleantype"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         true = 0;
-    #         return 0;
-    #     }
-    #     """
-    #     expect = "Not Left Value: BooleanLiteral(true)"
-    #     self.assertTrue(TestChecker.test(input,expect,434))
-        
-    # def test_stmt_miss3_mat1ch(self):
-    #     """test left value expression corresponding bool->int"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         argc = true;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Expression: BinaryOp(=,Id(argc),BooleanLiteral(true))"
-    #     self.assertTrue(TestChecker.test(input,expect,435))
-        
-    # def test_stmt_miss4_mat1ch(self):
-    #     """test left value expression corresponding float->int"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         argc = flo;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Expression: BinaryOp(=,Id(argc),Id(flo))"
-    #     self.assertTrue(TestChecker.test(input,expect,436))
-        
-    # def test_stmt_miss5_mat1ch(self):
-    #     """test left value expression corresponding (expression float)->int"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         int x;
-    #         x = 1 + 2 + 3 + 4 + 5 + 6 -1.3;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Expression: BinaryOp(=,Id(x),BinaryOp(-,BinaryOp(+,BinaryOp(+,BinaryOp(+,BinaryOp(+,BinaryOp(+,IntLiteral(1),IntLiteral(2)),IntLiteral(3)),IntLiteral(4)),IntLiteral(5)),IntLiteral(6)),FloatLiteral(1.3)))"
-    #     self.assertTrue(TestChecker.test(input,expect,437))
-        
-    # def test_stmt_miss6_mat1ch(self):
-    #     """test left value Statement corresponding return float[]->int[]"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     int[] main(int argc, string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         return tfloat;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Statement: Return(Id(tfloat))"
-    #     self.assertTrue(TestChecker.test(input,expect,438))
-        
-    # def test_stmt_miss7_mat1ch(self):
-    #     """test left value Statement corresponding return int[]->float[]"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     float[] main(int argc[], string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         int a[5];
-    #         return a;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Statement: Return(Id(a))"
-    #     self.assertTrue(TestChecker.test(input,expect,439))
-        
-    # def test_stmt_miss8_mat1ch(self):
-    #     """test left value Statement corresponding float->float[]"""
-    #     input = """
-    #     float tfloat[4];
-    #     float foo2(){
-    #         float tfloat;
-    #         boolean boo;
-    #         return 1.0;
-    #     }
-    #     float[] main(int argc[], string args, boolean argv, float flo){
-    #         //argc + tfloat[1] = 10.0;
-    #         foo2();
-    #         int a[5];
-    #         return 1.1/1.0-10;
-    #     }
-    #     """
-    #     expect = "Type Mismatch In Statement: Return(BinaryOp(-,BinaryOp(/,FloatLiteral(1.1),FloatLiteral(1.0)),IntLiteral(10)))"
-    #     self.assertTrue(TestChecker.test(input,expect,440))
-    
+        expect = "Undeclared Identifier: floas"
+        self.assertTrue(TestChecker.test(input,expect,497))
 
+    def test_all_check_9th(self):
+        """test large code example left expression failed 7th"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
+                return 0;
+            }
+            else{
+                return 0;
+            }
+            flo + data = 10;
+        }
+        """
+        expect = "Not Left Value: BinaryOp(+,Id(flo),Id(data))"
+        self.assertTrue(TestChecker.test(input,expect,498))
 
-    
+    def test_all_check_10th(self):
+        """test large code example left stmt return failed 7th"""
+        input = """
+        //void println(string str){}
+        //void save(int len){}
+        // void reduce
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
+            }
+            if(true){
+                return 0;
+            }
+            else{
+                return 0;
+            }
+            return flo;
+        }
+        // This is the end of Assignment 3
+        // Share to be better 
+        """
+        expect = "Type Mismatch In Statement: Return(Id(flo))"
+        self.assertTrue(TestChecker.test(input,expect,499))

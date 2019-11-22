@@ -1,0 +1,17 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int LongLML;
+            {
+                int f; boolean i;
+                {
+                    {{{{{{{{string str;return f;}}}}}}}}
+                }
+                i = true&&false||(10<=5);
+            }
+            break;
+        }
+        

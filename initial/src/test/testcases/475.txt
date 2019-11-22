@@ -1,0 +1,19 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            if(true)
+                if(true)
+                    if(true)
+                        if(true) return 1;
+                        else return 0;
+                    else return 0;
+                else return 0;
+            else return 0;
+        }
+        int foo(){
+            return "string";
+        }
+        

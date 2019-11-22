@@ -1,0 +1,11 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            for(10;true;1e1){
+                "haha";
+            }
+        }
+        

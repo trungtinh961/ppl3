@@ -1,0 +1,1 @@
+Not Left Value: FloatLiteral(10.1)

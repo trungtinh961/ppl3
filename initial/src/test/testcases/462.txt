@@ -1,0 +1,10 @@
+
+        float tfloat[4];
+        //float[] foo(){return tfloat;}
+        //float[] foo2(){return tfloat;}
+        float[] main(int argc[], string args, boolean argv, float flo){
+            float f[10];
+            args = "123"+"234";
+            return tfloat;
+        }
+        

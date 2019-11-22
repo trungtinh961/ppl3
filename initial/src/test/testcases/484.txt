@@ -1,0 +1,29 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }while(true);
+            return 1;
+        }
+        void foo(){
+            continue;
+            return ;
+        }
+        

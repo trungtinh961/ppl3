@@ -1,0 +1,12 @@
+
+        float tfloat[4];
+        void foo(){}
+        float[] main(int argc[], string args, boolean argv, float flo){
+            int a;
+            flo = 1.1;
+            flo = 1.0;
+            argv = 1 < 2 -!(true||1.0);
+            foo();
+            return argv;
+        }
+        

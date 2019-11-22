@@ -1,0 +1,18 @@
+
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        void main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                return;
+            }
+            if(true){
+                break;
+            }
+        }
+        

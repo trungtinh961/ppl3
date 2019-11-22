@@ -1,0 +1,28 @@
+
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            if(true){
+                if(boo){
+                    {{return 0;}}
+                }
+                else{
+                    return 0;
+                }
+            }
+            else{
+                if(boo){
+                    return 0;
+                }
+                else{
+                    return 1;
+                }
+            }
+            foo();
+        }
+        int foo(){
+            return 1.1;
+        }
+        
