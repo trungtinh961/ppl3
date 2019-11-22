@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,ArrayCell(Id(List),Id(NumOfWord)),Id(data))
+[False, False, True, True]

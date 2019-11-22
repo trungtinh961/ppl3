@@ -1,9 +1,6 @@
 
-        int main1, entry[10];
-        float tfloat;
-        float main;
-        string foo2(){return "10051999";}
-        int main(int argv, string argc){
+        float foo(int a, float a){return a+b;}
+        int main(){
             return 0;
         }
         

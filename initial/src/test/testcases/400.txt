@@ -1,8 +1,10 @@
 
-        int main, entry[10];
-        int mai1n(int argv, string argc){
+        int main(){
+            int a;
+            {
+                float a;
+            }
+            boolean a;
             return 0;
         }
-        string str, s;
-        float tfloat;
         

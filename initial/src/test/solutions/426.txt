@@ -1,1 +1,1 @@
-Unreachable Function: nothing
+Type Mismatch In Statement: Dowhile([BinaryOp(=,Id(f),BinaryOp(+,Id(f),CallExpr(Id(foo),[Id(arr)]))),BinaryOp(=,Id(f),BinaryOp(+,Id(f),IntLiteral(1)))],BinaryOp(+,CallExpr(Id(foo),[Id(arr)]),Id(f)))

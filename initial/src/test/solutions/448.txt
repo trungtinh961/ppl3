@@ -1,1 +1,1 @@
-Type Mismatch In Statement: If(BinaryOp(+,ArrayCell(Id(argc),IntLiteral(1)),IntLiteral(10)),Block([Return(Id(tfloat))]))
+Type Mismatch In Expression: ArrayCell(Id(foo),IntLiteral(1))

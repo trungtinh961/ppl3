@@ -1,1 +1,1 @@
-Undeclared Identifier: Long
+Undeclared Function: foo2

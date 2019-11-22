@@ -1,12 +1,7 @@
 
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            return 0.0;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            flo = foo2();
-            Long;
-            return 0;
-        }
+        int foo(int a, int b){ return a+b;}
+        int main(){
+                return a+b+foo2();
+            }
+        int a,b;
         

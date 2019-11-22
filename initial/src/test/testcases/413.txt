@@ -1,7 +1,17 @@
 
-        float tfloat;
-        string foo2(){return "10051999";}
-        int main(int argc, string flo, boolean argv, float flo){
-            return 0;
+        void main()
+        {
+            {
+                int a,b;
+                boolean c,d;
+                a = 10 ;
+                b = 5;
+                c = true;
+                d = c == (a>b);
+            }
+            {
+                somethingjustlikethis = a+b; 
+            }
+            return;
         }
         

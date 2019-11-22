@@ -1,11 +1,5 @@
 
-        float tfloat[4];
-        void test(){}
-        //float[] foo(){return tfloat;}
-        //float[] foo2(){return tfloat;}
-        float[] main(int argc[], string args, boolean argv, float flo){
-            float f[10];
-            f["LongLML"];
-            return tfloat;
-        }
+        void foo(){}
+        int main;
+        void f(){}
         

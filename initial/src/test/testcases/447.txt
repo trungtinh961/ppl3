@@ -1,15 +1,9 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[], string args, boolean argv, float flo){
-            //argc + tfloat[1] = 10.0;
-            flo = argc[1] = argc[2] = argc[3];
-            foo();
-            do{
-                int f;
-            }
-            while(argc[0]%10.1);
-            
-            return tfloat;
+        int foo;
+        void f(){
+            return;
+        }
+        void main(){
+            foo = f();
         }
         

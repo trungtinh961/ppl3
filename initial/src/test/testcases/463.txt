@@ -1,18 +1,7 @@
 
-        float tfloat[4];
-        //float[] foo(){return tfloat;}
-        float[] foo2(
-
-        ){
-            return tfloat;
-            }
-        int foo(){
-            return 1;
-        }
-        float[] main(int argc[], string args, boolean argv, float flo){
-            float f[10];
-            foo2()[2] = 123456;
-            foo() = 1;
-            return tfloat;
+        int main(){
+            int i;
+            for(i=1;i<69;i=i+1)
+                return i;
         }
         

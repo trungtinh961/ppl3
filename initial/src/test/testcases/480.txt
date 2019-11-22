@@ -1,26 +1,19 @@
 
         int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            int LongLML;
-            {
-                int f; boolean i;
-                {
-                    f = f%10;
-                }
-                i = true&&false||(10<=5);
-            }
-            return i;
+        int f(){
+            return 200;
         }
-        float foo(){
-            if (true){
-                return 0;
+        void main(){
+            int test;
+            test=f();
+            putIntLn(test);
+            {
+                int i, test, f;
+                test=f=i=100;
+                putIntLn(i);
+                putIntLn(test);
+                putIntLn(f);
             }
-            else{
-                return 1;
-            }
-            LongLML = 10;
+            putIntLn(test);
         }
         

@@ -1,17 +1,18 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            int LongLML;
-            {
-                int f; boolean i;
-                {
-                    {{{{{{{{string str;return f;}}}}}}}}
-                }
-                i = true&&false||(10<=5);
-            }
-            break;
+        int x,y[8];
+        int a,b,c;
+        void main(){
+            y[x+a+b*c];
+        }
+        void rescursive(int i,float z){
+            boolean exp;
+            int statement;
+            exp =true;
+            int x;
+            int c;
+            if(exp)
+                statement;
+            else
+                return;
         }
         

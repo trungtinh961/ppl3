@@ -1,12 +1,14 @@
 
-        float tfloat;
-        string foo2(){
-            float tfloat;
-            return "10051999";
+        int[] foo()
+        {
+            int a[5];
+            return a;
         }
-        int main(int argc, string args, boolean argv, float flo){
-            int argc, argc[2];
-            foo2();
-            return 0;
+        void main()
+        {
+            do
+                foo();
+            while i;
+            return;
         }
         

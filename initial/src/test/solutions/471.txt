@@ -1,1 +1,1 @@
-Redeclared Variable: str
+Unreachable Function: foo

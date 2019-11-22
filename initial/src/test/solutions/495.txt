@@ -1,1 +1,1 @@
-Redeclared Variable: flo
+Type Mismatch In Statement: Return(CallExpr(Id(foo2),[]))

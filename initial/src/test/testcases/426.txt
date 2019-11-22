@@ -1,24 +1,16 @@
 
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            foo1(foo());
-            boo = foo() && foo1(foo());
-            return 1.e-3;
+        int foo(int a[])
+        {
+            return a[0];
         }
-        boolean foo(){
-            return foo1(foo());
-        }
-        boolean foo1(boolean b){
-            return false;
-            float tfloat;
-            tfloat = foo2();
-        }
-        string nothing(){
-            return "Long";
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            return 0;
+        void main(){
+            int arr[10];
+            float f;
+            f = 0;
+            do 
+                f=f+foo(arr); 
+                f=f+1; 
+            while (foo(arr)+f);
+            return;
         }
         

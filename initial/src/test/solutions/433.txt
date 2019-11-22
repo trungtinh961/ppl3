@@ -1,1 +1,1 @@
-Not Left Value: IntLiteral(0)
+Type Mismatch In Expression: ArrayCell(ArrayCell(CallExpr(Id(foo),[Id(a)]),IntLiteral(1)),IntLiteral(2))

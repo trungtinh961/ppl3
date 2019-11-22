@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo2),[BooleanLiteral(true)])
+[True, False, False, False, False]

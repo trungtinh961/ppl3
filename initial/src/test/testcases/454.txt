@@ -1,13 +1,11 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[], 
-        string args, boolean argv, float flo){
-            int a;
-            flo = 1.1;
-            flo = 1.0;
-            flo = "LongDepTrai";
-            foo();
-            return tfloat;
+        boolean foo(){
+            return true;
+        }
+        int foo1(){
+            return 1;
+        }
+        void main(){
+            break;
         }
         

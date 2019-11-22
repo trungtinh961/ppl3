@@ -1,7 +1,6 @@
 
-        string foo2(){return "10051999";}
-        int mai1n(int argv, string argc){
-            return 0;
+        void main(float b){
+            string b;
+            return getInt();
         }
-        float foo(){return 10051999;}
         

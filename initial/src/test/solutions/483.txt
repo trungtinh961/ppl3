@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(FloatLiteral(10000.0))
+Type Mismatch In Statement: Return(BinaryOp(=,Id(d),BinaryOp(=,Id(a),BinaryOp(=,Id(b),Id(c)))))

@@ -1,1 +1,1 @@
-Continue Not In Loop
+Type Mismatch In Statement: If(BinaryOp(*,Id(a),IntLiteral(2)),CallExpr(Id(foo),[BinaryOp(-,Id(a),IntLiteral(1)),Id(b)]),Return(Id(c)))

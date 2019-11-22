@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(&&,StringLiteral(1005199),Id(Per))
+[True, True, False, False]

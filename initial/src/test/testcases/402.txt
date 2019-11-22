@@ -1,10 +1,9 @@
 
-        int main, entry[10];
-        string foo2(){return "10051999";}
-        int mai1n(int argv, string argc){
-            return 0;
+        boolean foo(boolean foo){
+            return foo;
         }
-        string str, s;
-        float tfloat;
-        float foo(){return 10051999;}
+        void main(){
+            return ;
+        }
+        string main;
         

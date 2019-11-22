@@ -1,11 +1,9 @@
 
-        void foo(){}
-        void foo1(){foo();}
-        void foo2(){foo1();}
-        void foo3(){foo2(); foo3();}
+        int foo(){
+            return 0;
+        }
         int main(){
-            do
-                return 1;
-            while(true);
+            int a,b,c;
+            return a=b+c=foo();
         }
         

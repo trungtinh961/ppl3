@@ -1,28 +1,10 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            if(true){
-                if(boo){
-                    {{return 0;}}
-                }
-                else{
-                    return 0;
-                }
-            }
-            else{
-                if(boo){
-                    return 0;
-                }
-                else{
-                    return 1;
-                }
-            }
-            foo();
+        void foo1()
+        {
+            foo2();
+            foo3();
         }
-        int foo(){
-            return 1.1;
-        }
+        void foo2(){}
+        void foo3(){}
+        void main(){}
         

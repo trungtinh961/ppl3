@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(x),BinaryOp(-,BinaryOp(+,BinaryOp(+,BinaryOp(+,BinaryOp(+,BinaryOp(+,IntLiteral(1),IntLiteral(2)),IntLiteral(3)),IntLiteral(4)),IntLiteral(5)),IntLiteral(6)),FloatLiteral(1.3)))
+Type Mismatch In Expression: BinaryOp(+,CallExpr(Id(foo),[Id(a),Id(b)]),IntLiteral(1))

@@ -1,1 +1,1 @@
-Redeclared Variable: argc
+Undeclared Identifier: i

@@ -19,32 +19,7 @@ class Symbol:
         self.mtype = mtype
         self.value = value
 
-def getTypeBinaryExp(left, right):
-    tupleOfType = (type(left), type(right))
-    return IntType() if tupleOfType == (IntType, IntType) else FloatType() if tupleOfType in [(IntType, FloatType), (FloatType, IntType), (FloatType, FloatType)] else BoolType() if tupleOfType == (BoolType, BoolType) else None
 
-def canPass(left, right):
-    if type(left) is ArrayPointerType:
-        return True if (type(right) in [ArrayPointerType, ArrayType]) and (type(left.eleType) == type(right.eleType)) else False
-    else:
-        return True if type(left) == type(right) else True if (type(left), type(right)) == (FloatType, IntType) else False
-
-def getEnv(env, localDecl):
-    for i in range(len(env)):
-        if env[i].name == localDecl.name:
-            env.pop(i)
-            break
-    env.append(localDecl)
-    return env
-
-def isTrue(x):
-    return x if type(x) is bool else False
-
-def checkIn(element, listElement, returnValue, ast):
-    if element in listElement:
-        return returnValue
-    else:
-        raise TypeMismatchInExpression(ast)
 
 class StaticChecker(BaseVisitor,Utils):
 
@@ -107,7 +82,7 @@ class StaticChecker(BaseVisitor,Utils):
         for x in self.lstFunc:
             if not x in self.lstCall:
                 raise UnreachableFunction(x.name)
-        return ''
+        return at
 
     def visitVarDecl(self,ast,c):
         return False
@@ -134,7 +109,7 @@ class StaticChecker(BaseVisitor,Utils):
                 lstLocal.append(res)
                 env.insert(0,res)
             else:
-                at = self.visit(i,(env,[],c[2],c[3],c[4])) # c = (global,[],isLoop,rettype)
+                at = self.visit(i,(env,[],c[2],c[3],c[4])) # c = (global,[],isLoop,rettype,name)
                 if type(at) is bool and at == True:
                     hasReturn = True
         return hasReturn
@@ -162,7 +137,7 @@ class StaticChecker(BaseVisitor,Utils):
     
     def visitId(self,ast,c):
         at = self.lookup(ast.name,c[0],lambda x: x.name)
-        if at is None or type(at.mtype) is MType:
+        if at is None: 
             raise Undeclared(Identifier(),ast.name)
         else:
             return at.mtype 
@@ -181,7 +156,7 @@ class StaticChecker(BaseVisitor,Utils):
         if ast.op is '=':
             if not type(ast.left) in [Id, ArrayCell]:
                 raise NotLeftValue(ast.left)
-            elif type(left) in [VoidType, ArrayType, ArrayPointerType]:
+            elif type(left) in [VoidType, ArrayType, ArrayPointerType, MType]:
                 raise TypeMismatchInExpression(ast)
             elif type(left) != type(right):
                 if type(left) is FloatType and type(right) is IntType:

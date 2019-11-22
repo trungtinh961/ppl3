@@ -1,18 +1,10 @@
 
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            return 1.e-3;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            argc = argc + 1;
-            if(true){
-                if (false){
-                    if(argc == 0){
-                        continue;
-                    }
-                }
-            }
-            return 0;
+        void main(){
+            int a;
+            {a =1;}
+            if(a)
+                return;
+            else                
+                return;
         }
         

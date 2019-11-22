@@ -1,1 +1,1 @@
-Redeclared Function: foo2
+Redeclared Parameter: a
