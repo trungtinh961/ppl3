@@ -1,1 +1,1 @@
-Undeclared Function: foo2
+Function main Not Return 

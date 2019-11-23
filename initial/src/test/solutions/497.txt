@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(result),CallExpr(Id(getPower),[Id(base),Id(power)]))
+Undeclared Identifier: floas

@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,ArrayCell(Id(arr),IntLiteral(0)),ArrayCell(Id(arr),IntLiteral(1)))
+Type Mismatch In Statement: Return(BinaryOp(/,Id(c),FloatLiteral(1.1)))

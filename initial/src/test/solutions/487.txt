@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,Id(b),Id(c))
+Unreachable Function: foo3

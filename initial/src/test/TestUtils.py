@@ -103,7 +103,6 @@ class TestAST:
         return line == expect
 
 
-
 class TestChecker:
     @staticmethod
     def test(input,expect,num):
@@ -124,7 +123,7 @@ class TestChecker:
         checker = StaticChecker(asttree)
         try:
             res = checker.check()
-            dest.write(str(list(res)))
+            #dest.write(str(list(res)))
         except StaticError as e:
             dest.write(str(e))
         finally:

@@ -20,7 +20,6 @@ class Symbol:
         self.value = value
 
 
-
 class StaticChecker(BaseVisitor,Utils):
 
     global_envi = [    
@@ -228,7 +227,7 @@ class StaticChecker(BaseVisitor,Utils):
             return False
         else:
             elseReturn = self.visit(elseStmt,c)
-            return thenReturn and elseReturn
+            return (thenReturn is True) and (elseReturn is True)
             
     def visitFor(self,ast,c):
         expr1 = self.visit(ast.expr1,c)

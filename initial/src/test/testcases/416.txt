@@ -1,9 +1,12 @@
 
-        void main(){
-            string str;
-            str = "Chery Chery Lady\n";
-            int a;
-            a = multi(10);
-            return;
+        float tfloat;
+        float foo2(){
+            float tfloat;
+            return 1.e-3;
+        }
+        int main(int argc, string args, boolean argv, float flo){
+            flo = foo2();
+            argc = argc + Trai;
+            return 0;
         }
         

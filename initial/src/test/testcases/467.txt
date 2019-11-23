@@ -1,5 +1,10 @@
 
-        int a;
-        float b;
-        boolean main;
+        float tfloat[4];
+        void test(){}
+        //float[] foo2(){return tfloat;}
+        float[] main(int argc[], string args, boolean argv, float flo){
+            float f[10];
+            f[!!!!!true];
+            return tfloat;
+        }
         

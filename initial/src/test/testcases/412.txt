@@ -1,13 +1,7 @@
 
-        int a;
-        float b;
-        string c;
-        int d[10];
-        void main(){
-            {
-                if(exp)
-                    return;
-            }
-            return;
+        float tfloat;
+        string foo2(){return "10051999";}
+        int main(int argc, string argc, boolean argv, float flo){
+            return 0;
         }
         

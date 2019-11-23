@@ -1,12 +1,19 @@
 
-        int foo(int a){
-            if (a>0)
-                return foo(a-1);
-            else
-                return 0;
-        }
-        void main()
-        {
-            return;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        void main(int argc[], string args, boolean argv, float flo){
+            string str,str2;
+            {
+                string str2;
+                {
+                    boolean str2;
+                    {
+                        float str2;
+                    }
+                }
+            }
+            int str;
         }
         

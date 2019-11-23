@@ -1,14 +1,28 @@
 
-        int a,b,c;
-        float d;
+        int i;
+        float f;
+        string str;
+        boolean boo;
         int main(){
-            if (a<b) 
-                c=a; 
-            else 
-                if(c<b)
-                    c=b;
-                else
-                    c=b;
-            return d=a=b=c;
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }while(true);
+            return 1e4;
+        }
+        void foo(){
+            return ;
         }
         

@@ -1,15 +1,20 @@
 
-        void foo1()
-        {
-            foo2();
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        float main(int argc[], string args, boolean argv, float flo){
+            if(true){
+                if(false){
+                    if(true)
+                        return 0;
+
+                }
+                return 0;
+            }
+            else
+                if(argv){
+                    return 0;
+                }
         }
-        void foo2()
-        {
-            foo3();
-        }
-        void foo3()
-        {
-            foo1();
-        }
-        void main(){}
         

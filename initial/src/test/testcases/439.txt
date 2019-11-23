@@ -1,13 +1,14 @@
 
-        int main(){
-            float a[6];
-            int b[9];
-            int c[69];
-            a[1]=foo(2)[3]/(c[b[2]]+3.0);
-            return b[0];
+        float tfloat[4];
+        float foo2(){
+            float tfloat;
+            boolean boo;
+            return 1.0;
         }
-        int[] foo(int a){
-            int arr[10];
-            return arr;
+        float[] main(int argc[], string args, boolean argv, float flo){
+            //argc + tfloat[1] = 10.0;
+            foo2();
+            int a[5];
+            return a;
         }
         

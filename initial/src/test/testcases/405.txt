@@ -1,9 +1,8 @@
 
-        int main1, arr[69];
-        float f;
-        float main;
-        string foo2(){ return "surprise";}
-        int main(){
+        int main, entry[10];float tfloat;
+        string foo2(){return "10051999";}
+        int mai1n(int argv, string argc){
             return 0;
         }
+        string str, s;float foo(){return 10051999;}
         

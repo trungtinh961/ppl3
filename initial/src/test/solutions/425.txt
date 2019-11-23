@@ -1,1 +1,1 @@
-Type Mismatch In Statement: For(BinaryOp(=,Id(i),IntLiteral(1));BinaryOp(<,Id(i),IntLiteral(10));FloatLiteral(0.11);Block([If(BinaryOp(<,Id(temp),IntLiteral(10)),BinaryOp(=,Id(temp),BinaryOp(+,Id(temp),IntLiteral(1)))),BinaryOp(=,Id(i),BinaryOp(+,Id(i),IntLiteral(1)))]))
+Unreachable Function: foo2

@@ -1,1 +1,1 @@
-[True]
+Not Left Value: CallExpr(Id(test),[])

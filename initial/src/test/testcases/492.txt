@@ -1,20 +1,15 @@
 
-        void printf(string str){}
-        void scanf(float a){}
-        int main()
-        {
-            float number;
-            printf("Enter a number: ");
-            scanf(number);
-            if (number <= 0.0)
-            {
-                if (number == 0.0)
-                    printf("You entered 0.");
-                else
-                    printf("You entered a negative number.");
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        void main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                return 0;
             }
-            else
-                printf("You entered a positive number.");
-            return 0;
         }
         

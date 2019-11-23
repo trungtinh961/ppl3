@@ -1,8 +1,29 @@
 
+        int i;
+        float f;
+        string str;
+        boolean boo;
         int main(){
-            boolean a,b,d,e,f;
-            int c;
-            a || b || c || d && e && f;
-            return 1; 
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }while(true);
+            return 1;
+        }
+        void foo(){
+            continue;
+            return ;
         }
         

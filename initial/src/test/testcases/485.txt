@@ -1,23 +1,25 @@
 
-        int foo(){
-            if(true)
-            {
-                int i;
-                for(i=0;i<10;i=i+1)
-                {
-                    break;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            int str;
+            do{
+                if(false){
+                    if(true){
+                        if (1 <= 10){
+                            return 10;
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else{
+                    }
                 }
-                return 1;
-            }
-            else
-                do
-                    if(true)
-                        return 2;
-                    else
-                        return 3;
-                while(true);
-        }
-        float main(){
-            return foo();
+            }while(true);
+            break;
+            return 1;
         }
         

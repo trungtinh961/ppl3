@@ -1,6 +1,14 @@
 
-        void main(){
-            int a[69];
-            a = 69;        
+        float tfloat[4];
+        float foo2(){
+            float tfloat;
+            boolean boo;
+            return 1.0;
+        }
+        float[] main(int argc[], string args, boolean argv, float flo){
+            //argc + tfloat[1] = 10.0;
+            foo2();
+            for(1;1;1)
+                argc[1] = -10;
         }
         

@@ -1,18 +1,21 @@
 
-        int main()
-        {   
-            do
-            {
-                if(n1 > n2)
-                    n1 = n1 - n2;
-                else
-                    n2 = n2 - n1;
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
             }
-            while(n1!=n2);
-            return foo(1);
+            if(true){
+                return 0;
+            }
+            for(1;true;1)
+                return 0;
         }
-        int foo(float a){
-            return !a;
-        }
-        int n1, n2; 
         

@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,IntLiteral(1),IntLiteral(1))
+Type Mismatch In Statement: Return(StringLiteral(string))

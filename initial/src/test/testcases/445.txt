@@ -1,9 +1,11 @@
 
-        int[] foo(int a[]){
-            return a;
-        }
-        int main(){
-            int arr[69];
-            return foo(foo(foo(arr)))[1]/foo(foo(foo(arr)))[0];
+        float tfloat[4];
+        float[] main(int argc[], string args, boolean argv, float flo){
+            //argc + tfloat[1] = 10.0;
+            do{
+                int f;
+            }
+            while(argv = true);
+            return args;
         }
         

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(-,IntLiteral(1),Id(boo))
+Not Left Value: IntLiteral(1)

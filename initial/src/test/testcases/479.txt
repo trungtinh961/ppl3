@@ -1,9 +1,16 @@
 
-        int foo(int a){
-            return a;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            {
+                int f; boolean i;
+                {
+                    f = f%10;
+                }
+                i = true&&false||(10<=5);
+            }
+            return f/.1;
         }
-        void main(){
-            a+foo(a)=foo(a)+a;
-        }
-        int a;
         

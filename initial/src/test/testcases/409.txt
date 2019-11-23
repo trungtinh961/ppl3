@@ -1,6 +1,9 @@
 
-        float foo(int a, float b){return a+b;}
-        int main(int a[], string a){
+        int main1, entry[10], entry;
+        float tfloat;
+        string foo2(){return "10051999";}
+        int main(int argv, string argc){
             return 0;
         }
+        void foo2(){}
         

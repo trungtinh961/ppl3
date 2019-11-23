@@ -1,17 +1,14 @@
 
-        int[] foo(int a,float b[]) {
-                int c[3];
-                if(a>0) 
-                {
-                    foo(a-1,b);
-                    return c;
-                }
-                else return c;
+        float tfloat[4];
+        float foo2(){
+            float tfloat;
+            boolean boo;
+            return 1.0;
         }
-        void main(){
-            int a;
-            float b[10];
-            a= 69;
-            foo(a,b)+1;
+        int main(int argc, string args, boolean argv, float flo){
+            //argc + tfloat[1] = 10.0;
+            foo2();
+            int x;
+            x = 1 + 2 + 3 + 4 + 5 + 6 -1.3;
         }
         

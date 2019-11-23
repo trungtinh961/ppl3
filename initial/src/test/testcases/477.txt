@@ -1,6 +1,20 @@
 
-        int x;
-        void main(){
-            x+1=2;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            {
+                int c;
+                {
+                    int a;
+                    {
+                        return 0;
+                    }
+                    a;
+                }
+                c;
+            }
+            a;
         }
         

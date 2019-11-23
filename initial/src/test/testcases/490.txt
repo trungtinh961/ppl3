@@ -1,15 +1,18 @@
 
-        int main(){
-            return foo(a,b);
-        }
-        int foo(int a[], float b){
-            if (a[0] == 0) 
-                return a[0];
-            else
-            {
-                return foo(a,b);
+        void println(string str){}
+        void save(int len){}
+        void main(){
+            int TimeRemaining,len,Per;
+                    println("How many incorrect times do you want to get? ");
+                    save(TimeRemaining);
+                    println("what minimum word lengh do you want? ");
+                    save(len);
+                    //fstream f;
+                    //f.open("input.txt",ios::in);
+                    string data;
+                    string List[255];
+                    int NumOfWord,n;
+                    List[-1] = "1005199"&&Per;
+                    NumOfWord=0;
             }
-        }
-        int a[10];
-        float b;
         

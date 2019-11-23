@@ -1,10 +1,12 @@
 
-        void main(){
-            int a;
-            {a =1;}
-            if(convertBoolean(a))
-                return;
-            else                
-                return;
+        float tfloat;
+        float foo2(){
+            float tfloat;
+            return 1.e-3;
+        }
+        int main(int argc, string args, boolean argv, float flo){
+            int foo2;
+            foo2();
+            return 0;
         }
         

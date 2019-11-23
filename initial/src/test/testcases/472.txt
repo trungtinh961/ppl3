@@ -1,13 +1,19 @@
 
-        int foo1()
-        {
-            foo2();
-            return 1;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        float main(int argc[], string args, boolean argv, float flo){
+            string str,str2;
+            {
+                string str2;
+                {
+                    boolean str2;
+                    {
+                        return 0;
+                    }
+                }
+            }
+            break;
         }
-        int foo2()
-        {
-            foo1();
-            return 1;
-        }
-        void main(){}
         

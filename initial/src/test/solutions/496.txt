@@ -1,1 +1,1 @@
-[False, True, False, False, False, False]
+Not Left Value: FloatLiteral(10.1)

@@ -1,13 +1,19 @@
 
+        int i;
+        float f;
+        string str;
+        boolean boo;
         int main(){
-            int a;
-            {
-                int a;
-                {
-                    int a;
-                    return b;
-                }
-            }
+            int str;
+            do 
+            do 
+            do 
+            if(true) return 0; else return 1; 
+            while(true);
+            while(true);
+            while(true);
         }
-        int b;
+        int foo(){
+            return Long;
+        }
         

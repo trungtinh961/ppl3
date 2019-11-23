@@ -1,20 +1,24 @@
 
-        float getPower(int b,int p)
-        {
-            float result;
-            if(p==0)
-                return result;
-            else 
-            {
-                result=b*(getPower(b,p-1));
-                return result;
+        //void println(string str){}
+        //void save(int len){}
+        void getline(int l, int data){}
+        int main(float flo){
+            int data,f,NumOfWord;
+            string List[255];
+            do{
+                getline(f,data);
+            }while(data!=1);
+            for(1;true;1){
+                boolean b;
+                b = !true&&false||(10.1>10);
             }
-        }
-        int main()
-        {
-            int base,power;
-            int result;     
-            result=getPower(base,power);     
-            return result;
+            if(true){
+                return 0;
+            }
+            else{
+                return 0;
+            }
+            floas;
+
         }
         

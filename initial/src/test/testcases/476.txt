@@ -1,8 +1,24 @@
 
-        int foo(){ 
-            return 0; 
-        }
-        void main(){
-            foo()=1;
+        int i;
+        float f;
+        string str;
+        boolean boo;
+        int main(){
+            if(true){
+                if(true){
+                    return 0;
+                }
+                else{
+                    if(true){
+                        return 0;
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+            }
+            
+            for(1;true;1)
+                return 0;
         }
         
