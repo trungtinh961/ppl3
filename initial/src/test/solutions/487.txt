@@ -1,1 +1,1 @@
-Unreachable Function: foo3
+Not Left Value: CallExpr(Id(foo),[])

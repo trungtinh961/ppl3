@@ -1,1 +1,1 @@
-Type Mismatch In Expression: UnaryOp(-,UnaryOp(!,Id(argv)))
+Not Left Value: BinaryOp(%,Id(a),IntLiteral(10))

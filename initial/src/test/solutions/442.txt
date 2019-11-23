@@ -1,1 +1,1 @@
-Type Mismatch In Statement: For(IntLiteral(10);BooleanLiteral(false);BooleanLiteral(true);Block([BinaryOp(=,ArrayCell(Id(argc),IntLiteral(1)),IntLiteral(0))]))
+Type Mismatch In Expression: BinaryOp(!=,Id(check),Id(value))

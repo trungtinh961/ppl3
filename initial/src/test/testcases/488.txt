@@ -1,15 +1,7 @@
 
-        void foo(){}
-        void foo1(){foo();}
-        void foo2(){foo2();}
-        void foo3(){foo3();}
-        int main(){
-            foo1();
-            foo3();
-            float foo3;
-            foo3();
-            do
-                return 1;
-            while(true);
-        }
+            int main()
+            {
+                10+2=10;
+                return 0;
+            }
         

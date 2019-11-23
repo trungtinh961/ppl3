@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(StringLiteral(string))
+Unreachable Function: foo1

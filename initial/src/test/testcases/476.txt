@@ -1,24 +1,15 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            if(true){
-                if(true){
-                    return 0;
-                }
-                else{
-                    if(true){
-                        return 0;
-                    }
-                    else{
-                        return 0;
-                    }
-                }
+            int foo()
+            {
+                return main();
             }
-            
-            for(1;true;1)
+            boolean foo1()
+            {
+                return false;
+            }
+            int main()
+            {
+                foo();
                 return 0;
-        }
+            }
         

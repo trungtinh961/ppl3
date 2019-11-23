@@ -1,1 +1,1 @@
-Redeclared Parameter: argc
+Undeclared Function: foo

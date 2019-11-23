@@ -1,13 +1,16 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[], string args, 
-        boolean argv, float flo){
-            int a;
-            flo = 1.1;
-            flo = 1.0;
-            flo = 1+2-3*4/5%-!argv;
-            foo();
-            return args;
-        }
+            int main()
+            {
+                int a;
+                a=10;
+                if (a%10=5)
+                {
+                    return 10;
+                }
+                else
+                {
+                    return 10;
+                }
+                
+            }
         

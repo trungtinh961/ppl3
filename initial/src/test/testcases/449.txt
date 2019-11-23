@@ -1,21 +1,13 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[],
-         string args, boolean argv, float flo){
-            //argc + tfloat[1] = 10.0;
-            if(1 == 2){
-                if (true == false){
-                    return tfloat;
-                }
+            int[] foo(float a[])
+            {
+                int value[200];
+                return value;
             }
-            else {
-                if (true)
-                {
-                    return tfloat;
-                }
+            int main ()
+            {
+                int a[100];
+                foo(foo(foo(foo(a))))[100];
+                return 0;
             }
-            foo();
-            return args;
-        }
         

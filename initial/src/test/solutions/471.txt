@@ -1,1 +1,1 @@
-Redeclared Variable: str
+Type Mismatch In Expression: BinaryOp(=,Id(a),BooleanLiteral(true))

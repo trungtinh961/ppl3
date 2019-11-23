@@ -1,11 +1,11 @@
 
-        float tfloat[4];
-        void test(){}
-        float[] foo(){return tfloat;}
-        float[] foo2(){return tfloat;}
-        float[] main(int argc[], string args, boolean argv, float flo){
-            float f[10];
-            foo2(foo(3));
-            return tfloat;
-        }
+            int func(int main)
+            {
+                return main;
+            }
+            int foo()
+            {
+                int main;
+                return main;
+            }
         

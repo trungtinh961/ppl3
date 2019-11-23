@@ -1,14 +1,19 @@
 
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            return 1.e-3;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            foo2();
-            int c,b;
-            b + c = 1;
-            return 0;
+        void main()
+        {
+            float number;
+            number=100.2;
+            do{
+                {
+                    {
+                        {
+                            int b;
+                            b=100;                       
+                        }
+                    }
+                }
+            }
+                
+            while(number/100);
         }
         

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+,StringLiteral(123),StringLiteral(234))
+Function main Not Return 

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: UnaryOp(-,BooleanLiteral(true))
+Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])

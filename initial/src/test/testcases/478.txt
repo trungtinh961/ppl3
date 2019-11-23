@@ -1,23 +1,13 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            float c;
+            int main()
             {
-                int c;
+                int i;
+                continue;
+                for (i=1;i<100;i=i+1)
                 {
-                    boolean c;
-                    {
-                        string c;
-                        c = "Long Dep Trai";
-                    }
-                    !c;
+
                 }
-                c = c%10;
+               
+                return 0;
             }
-            boo = !(c >= 10);
-            return c/1.1;
-        }
         

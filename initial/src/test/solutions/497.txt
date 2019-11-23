@@ -1,1 +1,1 @@
-Undeclared Identifier: floas
+Type Mismatch In Expression: ArrayCell(Id(foo),IntLiteral(3))

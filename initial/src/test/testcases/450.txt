@@ -1,11 +1,12 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[], 
-        string args, boolean argv, float flo){
-            int a;
-            a = !true + !false + !1;
-            foo();
-            return tfloat;
-        }
+            string foo(string name)
+            {
+                return name;
+            }
+            void main()
+            {
+                int value;
+                int check;
+                check=value+foo("Dang Van Dung");
+            }
         

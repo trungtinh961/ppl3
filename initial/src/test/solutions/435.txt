@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(argc),BooleanLiteral(true))
+Type Mismatch In Statement: Return(CallExpr(Id(foo2),[]))

@@ -1,1 +1,1 @@
-Redeclared Variable: flo
+Type Mismatch In Expression: CallExpr(Id(foo),[])

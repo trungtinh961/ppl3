@@ -1,12 +1,10 @@
 
-        float tfloat;
-        float foo2(){
-            float tfloat;
-            return 1.e-3;
-        }
-        int main(int argc, string args, boolean argv, float flo){
-            int foo2;
-            foo2();
-            return 0;
-        }
+            int a,b;            
+            int main(float a, int b) {                
+                do
+                    a = b + 1;
+                    c = a * 2;
+                while(true);
+                return 0;
+            }
         

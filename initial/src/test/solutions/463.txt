@@ -1,1 +1,1 @@
-Not Left Value: CallExpr(Id(foo),[])
+Type Mismatch In Statement: Return(IntLiteral(0))

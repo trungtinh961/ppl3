@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo3),[])
+Not Left Value: BinaryOp(+,IntLiteral(10),IntLiteral(2))

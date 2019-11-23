@@ -1,16 +1,12 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
+            int main()
             {
-                int f; boolean i;
-                {
-                    f = f%10;
-                }
-                i = true&&false||(10<=5);
+                int i;
+                
+                for (i=1;i<100;i=i+1)
+                    i=i+1;
+                continue;
+               
+                return 0;
             }
-            return f/.1;
-        }
         

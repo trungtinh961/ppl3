@@ -1,11 +1,13 @@
 
-        float tfloat[4];
-        float[] main(int argc[], string args, boolean argv, float flo){
-            //argc + tfloat[1] = 10.0;
-            return tfloat;
-            do{
-                int f;
+            int foo(int a,int b)
+            {
+                return a+b;
             }
-            while(argc[1] == 10.1);
-        }
+            int main ()
+            {
+                int a;
+                a=10;
+                foo(a);
+                return 0;
+            }
         

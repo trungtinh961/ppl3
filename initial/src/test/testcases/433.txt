@@ -1,14 +1,18 @@
 
-        float tfloat[4];
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            return 1.0;
+        int [] foo(float a[])
+        {
+            return a;
         }
-        int main(int argc, string args, boolean argv, float flo){
-            //argc + tfloat[1] = 10.0;
-            foo2();
-            0 = 0;
-            return 0;
+        void main(){
+            boolean a,b;
+            int array[10];
+            foo(array);
+            if ( a && b )
+            {
+                if( a || b ){a || b ;}
+                else
+                {}
+            }
+            else{a && b ;}
         }
         

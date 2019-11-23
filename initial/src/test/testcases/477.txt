@@ -1,20 +1,12 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
+            int main()
             {
-                int c;
+                int i;
+                for (i=1;i<100;i=i+1)
                 {
-                    int a;
-                    {
-                        return 0;
-                    }
-                    a;
+
                 }
-                c;
+                continue;
+                return 0;
             }
-            a;
-        }
         

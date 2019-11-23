@@ -1,11 +1,33 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        int main(){
-            for(10;true;1e1){
-                "haha";
+            int main()
+            {
+                
+                int i;
+                do{
+                    break;
+                    continue;
+                    do{
+                        break;
+                        continue;
+                        for(i=0;i<100;i=i+1)
+                        {
+                            for(i=0;i<100;i=i+1)
+                            {
+                                do
+                                {
+                                    break;
+                                    break;
+                                }while(i+1==10);
+                            }
+                            break;
+                        }
+                        break;
+                        continue;
+                    }while(i!=100);
+                }while(i == 200);
+                break;
+                
+                
+                return 0;
             }
-        }
         

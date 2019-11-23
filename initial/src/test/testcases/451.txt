@@ -1,11 +1,13 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int 
-        argc[], string args, boolean argv, float flo){
-            int a;
-            a = 1 -- 10 --20 -- 30.0 - -true;
-            foo();
-            return tfloat;
-        }
+            void foo(int a)
+            {
+                a=a+10;
+            }
+            void main()
+            {
+                float a;
+                a=1.5;
+                foo(a);
+                return;
+            }
         

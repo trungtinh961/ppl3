@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(flo),StringLiteral(LongDepTrai))
+Function main Not Return 

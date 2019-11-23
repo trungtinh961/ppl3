@@ -1,14 +1,9 @@
 
-        float tfloat[4];
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            return 1.0;
-        }
-        float[] main(int argc[], string args, boolean argv, float flo){
-            //argc + tfloat[1] = 10.0;
-            foo2();
-            int a[5];
-            return a;
+        int main(){
+            float arr[200];
+            float a;
+            a=1.5;
+            arr[a]=a;
+            return 0; 
         }
         

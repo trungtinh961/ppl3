@@ -1,7 +1,9 @@
 
-        float tfloat;
-        string foo2(){return "10051999";}
-        int main(int argc, string argc, boolean argv, float flo){
-            return 0;
-        }
+            int a,b;
+            int main(int a, int b) {                
+                {
+                    foo();
+                }
+                return 0;
+            }
         

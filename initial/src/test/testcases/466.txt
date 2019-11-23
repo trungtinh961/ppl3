@@ -1,12 +1,10 @@
 
-        float tfloat[4];
-        void test(){}
-        //float[] foo2(){return tfloat;}
-        float[] main(int argc[], 
-        string args,
-         boolean argv, float flo){
-            float f[10];
-            f[argc[1]*10/3+1.1];
-            return tfloat;
-        }
+            void main()
+            {
+                int i;
+                do{
+                    i=i+10;
+                    return "Dang Van Dung";
+                }while(i%10==5);
+            }
         

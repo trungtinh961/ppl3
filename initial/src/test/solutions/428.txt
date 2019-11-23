@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,Id(b),Id(c))
+Type Mismatch In Statement: Dowhile([Block([Block([Block([Block([VarDecl(b,IntType),BinaryOp(=,Id(b),IntLiteral(100))])])])])],BinaryOp(/,Id(number),IntLiteral(100)))

@@ -1,9 +1,15 @@
 
-        float tfloat[4];
-        void test(){}
-        float[] main(int argc[], string args, boolean argv, float flo){
-            float f[10];
-            test() = 123321;
-            return tfloat;
-        }
+            void main()
+            {
+                int value;
+                value=10;
+                if (value==10)
+                {
+                    return 0;
+                }
+                else
+                {
+                    
+                }
+            }
         

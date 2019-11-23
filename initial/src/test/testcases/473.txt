@@ -1,20 +1,12 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        float main(int argc[], string args, boolean argv, float flo){
-            if(true){
-                if(false){
-                    if(true)
-                        return 0;
-
-                }
+            int foo()
+            {
                 return 0;
             }
-            else
-                if(argv){
-                    return 0;
-                }
-        }
+            int main()
+            {
+                int a;
+                a=1.5;
+                return foo();
+            }
         

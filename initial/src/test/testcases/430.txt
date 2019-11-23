@@ -1,13 +1,13 @@
 
-        float tfloat[4];
-        float foo2(){
-            float tfloat;
-            boolean boo;
-            return 1.e-3;
+        void foo()
+        {
+            return;
         }
-        int main(int argc, string args, boolean argv, float flo){
-            argc + tfloat[1] = 10.0;
-            //foo2() = 0;
-            return 0;
+        int main ()
+        {
+            float a;
+            foo();
+            a=10;
+            return a;
         }
         

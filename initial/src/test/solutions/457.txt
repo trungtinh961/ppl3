@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(+,StringLiteral(Long),StringLiteral(Is))
+Type Mismatch In Expression: BinaryOp(%,Id(a),IntLiteral(10))

@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,CallExpr(Id(foo2),[]),Id(some))
+Type Mismatch In Statement: Return(Id(value))

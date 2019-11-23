@@ -1,1 +1,1 @@
-Not Left Value: IntLiteral(1)
+Type Mismatch In Statement: Return(Id(a))

@@ -1,10 +1,19 @@
 
-        float tfloat[4];
-        void foo(){}
-        float[] main(int argc[], string args, boolean argv, float flo){
-            int a;
-            a = argc[0] + --10 --20 -- 30.0;
-            foo();
-            return tfloat;
-        }
+            void foo(int a)
+            {
+                a=a+10;
+            }
+            void main()
+            {
+                int a;
+                a=10;
+                if (a==10)
+                {
+                    return;
+                }
+                else
+                {
+                    b=100;
+                }
+            }
         

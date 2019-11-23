@@ -1,19 +1,10 @@
 
-        int i;
-        float f;
-        string str;
-        boolean boo;
-        float main(int argc[], string args, boolean argv, float flo){
-            string str,str2;
+            int foo()
             {
-                string str2;
-                {
-                    boolean str2;
-                    {
-                        return 0;
-                    }
-                }
+                return 0;
             }
-            break;
-        }
+            void main()
+            {
+
+            }
         

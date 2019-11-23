@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(Id(flo))
+Type Mismatch In Expression: ArrayCell(ArrayCell(CallExpr(Id(foo),[Id(a)]),IntLiteral(1)),IntLiteral(2))
