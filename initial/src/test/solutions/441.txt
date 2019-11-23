@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(a),IntLiteral(69))
+Type Mismatch In Expression: BinaryOp(=,ArrayCell(Id(a),IntLiteral(0)),BinaryOp(+,BinaryOp(-,BinaryOp(+,IntLiteral(1),IntLiteral(2)),BinaryOp(/,BinaryOp(*,IntLiteral(3),IntLiteral(4)),IntLiteral(5))),Id(b)))

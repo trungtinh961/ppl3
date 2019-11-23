@@ -1,13 +1,8 @@
 
-        int main(){
-            float a[6];
-            int b[9];
-            int c[69];
-            a[1]=foo(2)[3]/(c[b[2]]+3.0);
-            return b[0];
-        }
-        int[] foo(int a){
-            int arr[10];
-            return arr;
-        }
+           int main(boolean a, int b) {             
+                boolean c;
+                c = true != a;
+                c = b && true;
+                return 0;
+            }
         

@@ -1,9 +1,8 @@
 
-        int foo(boolean boo){
-            return 69;
-        }
-        int main(){
-            string hello;
-            return foo(hello);
-        }
+           int main(float a[], int b, float c) {
+                if (b == c) {
+                    a[0] = b % c;
+                }
+                return 0;
+            }
         

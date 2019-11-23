@@ -1,8 +1,12 @@
 
-        int main(){
-            boolean boo; 
-            boo=false;
-            1-boo;
-            return 1;
-        }
+            int a,b;         
+            float[] main(int a, boolean b) {             
+                int c[5];
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return c;
+            }
         

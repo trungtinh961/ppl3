@@ -1,11 +1,8 @@
 
-        int main(){
-            int a;
-            float b;
-            b = 69;
-            a = b;        
-        {
-            return 0;
-        }
-        }
+           int main(int a[], boolean b) {             
+                boolean c;
+                b = !true;
+                c = b || 1;
+                return 0;
+            }
         

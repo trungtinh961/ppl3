@@ -1,9 +1,9 @@
 
-        int foo;
-        void f(){
-            return;
-        }
-        void main(){
-            foo = f();
-        }
+           int main(float a, int b, int c) {
+                int arr[5];
+                do {
+                    arr = a + 1.9;
+                } while (b != c);
+                return 1;
+            }
         

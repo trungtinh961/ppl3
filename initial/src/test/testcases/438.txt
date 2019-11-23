@@ -1,12 +1,6 @@
 
-        int main(){
-            boolean c;
-            int i;
-            i=3;
-            if (i>0){
-                int d;
-                d=true;
+           int main(float a[], boolean b) {             
+                a[2] = 1 + b[0];
+                return 0;
             }
-            return i;
-        }
         

@@ -1,9 +1,8 @@
 
-        int[] foo(int a[]){
-            return a;
-        }
-        int main(){
-            int arr[69];
-            return foo(foo(foo(arr)))[1]/foo(foo(foo(arr)))[0];
-        }
+           int main(float a, int b, float c) {
+                do {
+                    a = a + 1.9;
+                } while (b >= c) && (a <= 10.15) || b;
+                return 1;
+            }
         

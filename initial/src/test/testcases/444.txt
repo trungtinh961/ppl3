@@ -1,9 +1,8 @@
 
-        int foo(int a[] , float b[]){
-            return a[0]/a[1];
-        }
-        int main(){
-            return foo(a,b);
-        }
-        int a[5], b[10];
+           int main(float a, int b, float c) {
+                do {
+                    a = a + 1.9;
+                } while (b != c);
+                return 1;
+            }
         

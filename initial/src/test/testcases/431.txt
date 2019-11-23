@@ -1,8 +1,12 @@
 
-        void main(){
-            int a,b[1];
-            a=1;
-            b[1.0]=a;                
-            return;
-        }
+            int a,b;
+            float c;            
+            float main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return "ppl";
+            }
         

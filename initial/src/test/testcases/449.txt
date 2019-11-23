@@ -1,15 +1,7 @@
 
-        void main(){
-            int a,b;
-            a=b=1;
-            boolean boo;
-            boo = foo(a,b);
-            return;
-        }
-        boolean foo(float a, float b){
-            if (a!=b)
-                return true;
-            else
-                return false;
-        }
+           int main(float a, int b, float c) {
+                for(b = 1; b >= 0; b = b + 1) {
+                    c = true;
+                }
+            }
         

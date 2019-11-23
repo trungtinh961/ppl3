@@ -1,8 +1,13 @@
 
-        int foo(){
-            return 1;
-        }
-        void main(){
-                foo()[1]+1; 
+            int a,b;
+            float c;            
+            int main(int a, boolean b) {
+                float c[5];            
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return c[1];
             }
         

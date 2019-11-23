@@ -1,15 +1,12 @@
 
-        int main(){
-            boolean c;
-            c=true;
-            int i,a;
-            i=a+3;
-            if (i>0){
-                int d;
-                d=1;
-                -c;
-                putInt(d);
+            int a,b;         
+            float[] main(float d[], boolean b) {             
+                int c[5];
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return "ppl";
             }
-            return i;
-        }
         

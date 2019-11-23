@@ -1,6 +1,6 @@
 
-        void main(){
-            int a[69];
-            a = 69;        
-        }
+           int main(int a[], float b) {             
+                a[0] = 1 + 2 - 3 * 4 / 5 + b;
+                return 0;
+            }
         

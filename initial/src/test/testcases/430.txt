@@ -1,9 +1,12 @@
 
-        void main(){
-            int a,b[10],i;
-            a=10;
-            for(i=1;i<=10;i=i+1)
-                b[i-1.0];                
-            return;
-        }
+            int a,b;
+            float c;            
+            float main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return b;
+            }
         

@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[Id(a),Id(b)])
+Type Mismatch In Expression: BinaryOp(!=,Id(b),Id(c))

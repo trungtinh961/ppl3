@@ -1,10 +1,5 @@
 
-        int i;
-        int f(int a, int b){
-            return 200;
-        }
-        void main(){
-            int test;
-            test=f(test);
-        }
+           int main(int a[], float b, int c) {             
+                a[0] = b % c;
+            }
         
