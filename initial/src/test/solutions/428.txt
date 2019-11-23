@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Dowhile([Block([Block([Block([Block([VarDecl(b,IntType),BinaryOp(=,Id(b),IntLiteral(100))])])])])],BinaryOp(/,Id(number),IntLiteral(100)))
+Type Mismatch In Statement: Return(FloatLiteral(1.34567))

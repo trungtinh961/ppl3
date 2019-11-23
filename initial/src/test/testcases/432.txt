@@ -1,8 +1,8 @@
 
-        int main ()
-        {
-            string name;
-            name="Dang Van Dung";
-            return name;
+        int foo(){
+            return 1;
         }
+        void main(){
+                foo()[1]+1; 
+            }
         

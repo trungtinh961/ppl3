@@ -1,33 +1,23 @@
 
-            int main()
+        int foo(){
+            if(true)
             {
-                
                 int i;
-                do{
+                for(i=0;i<10;i=i+1)
+                {
                     break;
-                    continue;
-                    do{
-                        break;
-                        continue;
-                        for(i=0;i<100;i=i+1)
-                        {
-                            for(i=0;i<100;i=i+1)
-                            {
-                                do
-                                {
-                                    break;
-                                    break;
-                                }while(i+1==10);
-                            }
-                            break;
-                        }
-                        break;
-                        continue;
-                    }while(i!=100);
-                }while(i == 200);
-                break;
-                
-                
-                return 0;
+                }
+                return 1;
             }
+            else
+                do
+                    if(true)
+                        foo();
+                    else
+                        return 3;
+                while(true);
+        }
+        float main(){
+            return foo();
+        }
         

@@ -1,13 +1,9 @@
 
-        void foo()
-        {
-            return;
-        }
-        int main ()
-        {
-            float a;
-            foo();
+        void main(){
+            int a,b[10],i;
             a=10;
-            return a;
+            for(i=1;i<=10;i=i+1)
+                b[i-1.0];                
+            return;
         }
         

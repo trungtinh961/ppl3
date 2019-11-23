@@ -1,7 +1,24 @@
 
-            int main()
+        int main(){
+            do
             {
-                10=10+2;
-                return 0;
+                {
+                    if (b>c)
+                        return a+1;
+                    else
+                        return b-1;                    
+                }
             }
+            {
+                a+b;
+            }
+            while (a<5);
+            foo();
+            foo();
+            foo();
+            foo();
+            return 1;
+        }
+        int a,b,c;
+        void foo(){}
         

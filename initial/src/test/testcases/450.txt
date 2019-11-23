@@ -1,12 +1,5 @@
 
-            string foo(string name)
-            {
-                return name;
-            }
-            void main()
-            {
-                int value;
-                int check;
-                check=value+foo("Dang Van Dung");
-            }
+        void main(){
+            break;
+        }
         

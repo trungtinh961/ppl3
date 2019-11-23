@@ -1,10 +1,9 @@
 
-            void foo(){
-
-            }
-            int main()
-            {
-                foo()=10;
-                return 0;
-            }
+        int foo(){
+            return 0;
+        }
+        int main(){
+            int a,b,c;
+            return a=b+c=foo();
+        }
         

@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,IntLiteral(10),IntLiteral(2))
+Type Mismatch In Expression: UnaryOp(!,Id(b))

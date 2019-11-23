@@ -1,10 +1,16 @@
 
-        int func(){
-            return 2;
-        }
-        void main(){
-            func();
-            func;
-            return 0;
+        void main () {
+            float a;
+            a=getInt();
+            putInt(69);
+            putIntLn(96);
+            a=getFloat();
+            putFloat(69);
+            putFloatLn(69.96);
+            putBool(true&&false);
+            putBoolLn(true||false);
+            putString("Hello hello, can u hear me?");
+            putStringLn("Hello hello, can u hear me?");
+            putLn();
         }
         

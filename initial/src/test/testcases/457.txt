@@ -1,19 +1,9 @@
 
-            int main()
-            {
-                float a;
-                a=10;
-                int value;
-                value=a%10+5;
-                if (a==5)
-                {
-                    
-                }
-                else
-                {
-                    return 10;
-                }
-                return 0;
-                
-            }
+        string hello(string str){
+            return str;
+        }
+        int main(){
+            hello("Hi");
+            {{continue;}}
+        }
         

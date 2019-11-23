@@ -1,13 +1,6 @@
 
-            int main()
-            {
-                int i;
-                continue;
-                for (i=1;i<100;i=i+1)
-                {
-
-                }
-               
-                return 0;
-            }
+        void main(){
+            float arr[10];
+            arr[0]+arr[1]=arr[2]+3;
+        }
         

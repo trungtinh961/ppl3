@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Dowhile([Block([Return(IntLiteral(0))])],BinaryOp(+,Id(a),IntLiteral(10)))
+Function main Not Return 

@@ -115,7 +115,7 @@ class StaticChecker(BaseVisitor,Utils):
                 env.insert(0,res)
             else:
                 at = self.visit(i,(env,[],c[2],c[3],c[4])) # c = (global,[],isLoop,rettype,name)
-                if type(at) is bool and at == True:
+                if at is True:
                     hasReturn = True
         return hasReturn
 
@@ -250,7 +250,7 @@ class StaticChecker(BaseVisitor,Utils):
         hasReturn = False
         for x in ast.sl:
             at = self.visit(x, (c[0], c[1], True, c[3], c[4]))
-            if type(at) is bool and at is True:
+            if at is True:
                 hasReturn = True
         return hasReturn
 

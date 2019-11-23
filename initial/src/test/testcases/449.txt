@@ -1,13 +1,15 @@
 
-            int[] foo(float a[])
-            {
-                int value[200];
-                return value;
-            }
-            int main ()
-            {
-                int a[100];
-                foo(foo(foo(foo(a))))[100];
-                return 0;
-            }
+        void main(){
+            int a,b;
+            a=b=1;
+            boolean boo;
+            boo = foo(a,b);
+            return;
+        }
+        boolean foo(float a, float b){
+            if (a!=b)
+                return true;
+            else
+                return false;
+        }
         

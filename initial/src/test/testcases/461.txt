@@ -1,12 +1,4 @@
 
-            int main()
-            {
-                int a;
-                a=10;
-                do
-                    return 0;
-                while(a+10);
-                
-                
-            }
+        void main(){}
+        int foo(){}
         

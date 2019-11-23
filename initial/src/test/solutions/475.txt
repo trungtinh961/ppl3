@@ -1,1 +1,1 @@
-Unreachable Function: foo1
+Not Left Value: BinaryOp(+,IntLiteral(1),IntLiteral(1))

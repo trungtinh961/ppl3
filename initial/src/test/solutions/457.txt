@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(%,Id(a),IntLiteral(10))
+Continue Not In Loop

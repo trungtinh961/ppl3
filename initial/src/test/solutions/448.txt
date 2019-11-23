@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])
+Type Mismatch In Expression: ArrayCell(Id(foo),IntLiteral(1))

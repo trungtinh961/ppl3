@@ -1,13 +1,9 @@
 
-            void foo(int a)
-            {
-                a=a+10;
-            }
-            void main()
-            {
-                float a;
-                a=1.5;
-                foo(a);
-                return;
-            }
+        int foo(){
+            if (true)
+                break;
+            else return 1;
+            return 0;
+        }
+        void main(){}
         

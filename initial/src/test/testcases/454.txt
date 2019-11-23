@@ -1,16 +1,11 @@
 
-            int main()
-            {
-                int a;
-                a=10;
-                if (a==10)
-                {
-                    return 10;
-                }
-                else
-                {
-
-                }
-                
-            }
+        boolean foo(){
+            return true;
+        }
+        int foo1(){
+            return 1;
+        }
+        void main(){
+            break;
+        }
         

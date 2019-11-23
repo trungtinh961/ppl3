@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(check),IntLiteral(1))
+Type Mismatch In Expression: BinaryOp(=,Id(a),IntLiteral(69))

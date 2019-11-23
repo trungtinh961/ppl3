@@ -1,17 +1,15 @@
 
-        int foo2()
-        {
-            int value;
-            foo();
-            int check;
-            return foo();
-        }
-        void main(){
-            foo2();
-            return ;
-        }
-        string foo()
-        {
-            return "Dang Van Dung";
+        int main(){
+            boolean c;
+            c=true;
+            int i,a;
+            i=a+3;
+            if (i>0){
+                int d;
+                d=1;
+                -c;
+                putInt(d);
+            }
+            return i;
         }
         

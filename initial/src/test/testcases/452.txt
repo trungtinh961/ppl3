@@ -1,19 +1,9 @@
 
-            void foo(int a)
-            {
-                a=a+10;
-            }
-            void main()
-            {
-                int a;
-                a=10;
-                if (a==10)
-                {
-                    return;
-                }
-                else
-                {
-                    b=100;
-                }
-            }
+        string hello(string str){
+            return str;
+        }
+        int main(){
+            hello("Hi");
+            {{break;}}
+        }
         

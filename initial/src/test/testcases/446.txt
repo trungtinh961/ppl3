@@ -1,12 +1,8 @@
 
-            int foo(int a)
-            {
-                return a;
-            }
-            int main ()
-            {
-                float a;
-                foo(a);
-                return 0;
-            }
+        int foo(int a){
+            return a;
+        }
+        void main(){
+            foo = 1;
+        }
         

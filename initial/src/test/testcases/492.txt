@@ -1,11 +1,20 @@
 
-            int pow(int a, int n) {
-            return a * pow(a, n-1);
+        void printf(string str){}
+        void scanf(float a){}
+        int main()
+        {
+            float number;
+            printf("Enter a number: ");
+            scanf(number);
+            if (number <= 0.0)
+            {
+                if (number == 0.0)
+                    printf("You entered 0.");
+                else
+                    printf("You entered a negative number.");
             }
-
-            void main() {
-            int pow;
-            pow = 2;
-            pow(2,3);
-            }
+            else
+                printf("You entered a positive number.");
+            return 0;
+        }
         

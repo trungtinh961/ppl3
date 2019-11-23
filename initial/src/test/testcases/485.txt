@@ -1,23 +1,23 @@
 
-            int main()
+        int foo(){
+            if(true)
             {
                 int i;
-                for (i=0;i<10;i=i+1)
+                for(i=0;i<10;i=i+1)
                 {
-                    continue;
-                    continue;
-                    break;
-                    break;
-                    for (i=0;i<10;i=i+1)
-                    {
-                        break;
-                        continue;
-                    }
                     break;
                 }
-                continue;
-                
-                
-                return 0;
+                return 1;
             }
+            else
+                do
+                    if(true)
+                        return 2;
+                    else
+                        return 3;
+                while(true);
+        }
+        float main(){
+            return foo();
+        }
         

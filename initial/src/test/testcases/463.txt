@@ -1,6 +1,7 @@
 
-            void main()
-            {
-                return 0;
-            }
+        int main(){
+            int i;
+            for(i=1;i<69;i=i+1)
+                return i;
+        }
         

@@ -1,10 +1,12 @@
 
-        void main()
-        {
-            float i;
-            for (i=0;i=10;i=i+1)
-            {
-                break;
+            int a,b;
+            string flag;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while flag;
+                return 0;
             }
-        }
         

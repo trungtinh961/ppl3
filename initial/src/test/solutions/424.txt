@@ -1,1 +1,1 @@
-Type Mismatch In Statement: For(BinaryOp(=,Id(i),IntLiteral(0));BinaryOp(=,Id(i),IntLiteral(10));BinaryOp(=,Id(i),BinaryOp(+,Id(i),IntLiteral(1)));Block([Break()]))
+Type Mismatch In Statement: Dowhile([Block([If(BinaryOp(==,Id(a),IntLiteral(2)),Block([BinaryOp(=,Id(b),BooleanLiteral(false))]))])],Id(flag))

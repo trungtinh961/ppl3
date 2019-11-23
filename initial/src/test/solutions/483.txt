@@ -1,1 +1,1 @@
-Type Mismatch In Statement: For(BinaryOp(=,Id(i),IntLiteral(1));BinaryOp(<,Id(i),IntLiteral(100));BinaryOp(=,Id(i),BinaryOp(+,Id(i),IntLiteral(1)));Block([Block([Block([Break()])])]))
+Type Mismatch In Statement: Return(BinaryOp(=,Id(d),BinaryOp(=,Id(a),BinaryOp(=,Id(b),Id(c)))))

@@ -1,19 +1,10 @@
 
-        int foo()
-        {
-            return 10;
-        }
-        void main()
-        {
-            int a,b,c,d;
-            if (a == b)
-                if (c == d)
-                    foo();
-                else
-                {
-                 
-
-                }
-            return a;
+        int[] main(){
+            float a[5];
+            int b[5];
+            if(true)
+                return a;
+            else
+                return b;
         }
         

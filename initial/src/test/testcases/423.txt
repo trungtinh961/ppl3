@@ -1,10 +1,10 @@
 
-        void main()
-        {
-            int i;
-            for (i=0;i=10;i=i+1)
-            {
-                break;
+            int a,b;
+            string flag;            
+            int main(int a, boolean b) {                
+                for (a = 10; b = true; flag = "ppl") {
+                    b = false;
+                }
+                return 0;
             }
-        }
         

@@ -1,15 +1,10 @@
 
-            void main()
-            {
-                int value;
-                value=10;
-                if (value==10)
-                {
-                    return 0;
-                }
+        int main(){
+            if(true)
+                if(false)
+                    return 1;
                 else
-                {
-                    
-                }
-            }
+                    return 0;
+            else return 2;
+        }
         

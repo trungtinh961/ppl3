@@ -1,16 +1,8 @@
 
-        float foo(int a)
-        {
-            return a;
-        }
-        int foo2()
-        {
-            int value;
-            foo(value);
-            int check;
-            return check;
-        }
-        void main(){
-            return foo2();
+        int main(){
+            int boo; 
+            boo=1;
+            (!boo)&&(true);
+            return 1;
         }
         

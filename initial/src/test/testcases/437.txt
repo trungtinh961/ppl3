@@ -1,20 +1,17 @@
 
-        string[] foo(int a[],int b[])
-        {
-            int i;
-            int n;
-            n=100;
-            for (i=10;i<n;i=i+1)
-            {
-                a[i]=b[i+i+i];
-            }
-            return "Done";
+        int[] foo(int a,float b[]) {
+                int c[3];
+                if(a>0) 
+                {
+                    foo(a-1,b);
+                    return c;
+                }
+                else return c;
         }
-        void main()
-        {
-            int firstArray[100];
-            int secondArray[100];
-            foo(firstArray,secondArray);
-            return;
+        void main(){
+            int a;
+            float b[10];
+            a= 69;
+            foo(a,b)+1;
         }
         

@@ -1,7 +1,5 @@
 
-            int foo()
-            {
-                int main;
-                return main;
-            }
+        void foo(){}
+        int main;
+        void f(){}
         

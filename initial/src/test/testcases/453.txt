@@ -1,8 +1,11 @@
 
-            int main()
-            {
-                int a;
-                a=10;
-                
-            }
+        void main(){
+            if (true)
+                {
+                    {
+                        if (false)
+                            break;
+                    }
+                }
+        }
         

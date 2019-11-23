@@ -1,15 +1,9 @@
 
-            int foo(int a)
-            {
-                return a;
-            }
-            int main ()
-            {
-                float a;
-                int b;
-                a=10.2;
-                b=10;
-                foo(a+b);
-                return 0;
-            }
+        int foo(boolean boo){
+            return 69;
+        }
+        int main(){
+            string hello;
+            return foo(hello);
+        }
         

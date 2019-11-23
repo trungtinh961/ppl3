@@ -1,1 +1,1 @@
-Continue Not In Loop
+Not Left Value: BinaryOp(+,Id(a),CallExpr(Id(foo),[Id(a)]))

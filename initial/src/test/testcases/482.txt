@@ -1,13 +1,13 @@
 
-            int main()
+        int main(){
+            int a;
             {
-                int i;
-                
-                for (i=1;i<100;i=i+1)
+                int a;
                 {
-
+                    int a;
+                    return b;
                 }
-                break;
-                return 0;
             }
+        }
+        int b;
         

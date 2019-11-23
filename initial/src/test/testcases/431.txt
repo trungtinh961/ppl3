@@ -1,16 +1,8 @@
 
-        int i;
-        void foo(){
-            for (i = 0; i < 10; i = i + 1)
-                for (i = 0; i < 10; i = i + 1)
-                    for (i = 0; i < 10; i = i + 1)
-                        for (i = 0; i < 10; i = i + 1)
-                            i = i - 1;
-        }
-        int main ()
-        {
-            float value;
-            foo();
-            return value;
+        void main(){
+            int a,b[1];
+            a=1;
+            b[1.0]=a;                
+            return;
         }
         

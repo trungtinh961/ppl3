@@ -1,12 +1,6 @@
 
-            int main()
-            {
-                int a;
-                a=10;
-                do
-                    a=a+100;
-                while(a!=10);
-                
-                
-            }
+        int main(){
+            if (true)
+                return 1;
+        }
         

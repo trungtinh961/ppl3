@@ -1,21 +1,5 @@
 
-            int foo()
-            {
-                return foo();
-            }
-            string foo1(string a)
-            {
-                foo();
-                foo2();
-                foo1("Done");
-                return a;
-            }
-            boolean foo2()
-            {
-                return false;
-            }
-            int main()
-            {
-                return 0;
-            }
+        void main(){
+            1+1=2; 
+        }
         

@@ -1,9 +1,3 @@
-"""
-    *   ID: 1713521
-    *   Name: Nguyen Trung Tinh
-"""
-
-
 import unittest
 from TestUtils import TestChecker
 from AST import *
@@ -306,4 +300,97 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Statement: For(BinaryOp(=,Id(a),IntLiteral(10));BinaryOp(=,Id(flag),StringLiteral(ppl));IntLiteral(1);Block([BinaryOp(=,Id(b),BooleanLiteral(false))]))"
         self.assertTrue(TestChecker.test(input,expect,422))
 
-    
+    def test_TypeMismatchStmt_for_expr3(self):
+        input = """
+            int a,b;
+            string flag;            
+            int main(int a, boolean b) {                
+                for (a = 10; b = true; flag = "ppl") {
+                    b = false;
+                }
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: For(BinaryOp(=,Id(a),IntLiteral(10));BinaryOp(=,Id(b),BooleanLiteral(true));BinaryOp(=,Id(flag),StringLiteral(ppl));Block([BinaryOp(=,Id(b),BooleanLiteral(false))]))"
+        self.assertTrue(TestChecker.test(input,expect,423))
+
+
+    def test_TypeMismatchStmt_dowhile(self):
+        input = """
+            int a,b;
+            string flag;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while flag;
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: Dowhile([Block([If(BinaryOp(==,Id(a),IntLiteral(2)),Block([BinaryOp(=,Id(b),BooleanLiteral(false))]))])],Id(flag))"
+        self.assertTrue(TestChecker.test(input,expect,424))
+
+    def test_TypeMismatchStmt_return_void_have_expr(self):
+        input = """
+            int a,b;
+            string flag;            
+            void main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: Return(IntLiteral(0))"
+        self.assertTrue(TestChecker.test(input,expect,425))
+
+    def test_TypeMismatchStmt_int_return_void(self):
+        input = """
+            int a,b;
+            string flag;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return ;
+            }
+        """
+        expect = "Type Mismatch In Statement: Return()"
+        self.assertTrue(TestChecker.test(input,expect,426))
+
+    def test_TypeMismatchStmt_int_return_float(self):
+        input = """
+            int a,b;
+            float c;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return c;
+            }
+        """
+        expect = "Type Mismatch In Statement: Return(Id(c))"
+        self.assertTrue(TestChecker.test(input,expect,427))
+
+    def test_TypeMismatchStmt_int_return_float(self):
+        input = """
+            int a,b;
+            float c;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return 1.34567;
+            }
+        """
+        expect = "Type Mismatch In Statement: Return(FloatLiteral(1.34567))"
+        self.assertTrue(TestChecker.test(input,expect,428))

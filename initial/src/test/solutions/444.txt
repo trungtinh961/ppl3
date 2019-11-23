@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])
+Type Mismatch In Expression: CallExpr(Id(foo),[Id(a),Id(b)])

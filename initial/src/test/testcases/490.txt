@@ -1,11 +1,15 @@
 
-            int main()
+        int main(){
+            return foo(a,b);
+        }
+        int foo(int a[], float b){
+            if (a[0] == 0) 
+                return a[0];
+            else
             {
-                putInt(10);
-                putIntLn(20);
-                float numberFloat;
-                numberFloat=getFloat();
-                putFloatLn(numberFloat);
-                return getFloat();
+                return foo(a,b);
             }
+        }
+        int a[10];
+        float b;
         

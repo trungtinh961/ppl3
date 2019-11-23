@@ -1,11 +1,12 @@
 
-        void main()
-        {
-            int i;
-            float n;
-            for (i=0;i=10;n=i+1.5)
-            {
-                break;
+            int a,b;
+            string flag;            
+            void main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return 0;
             }
-        }
         

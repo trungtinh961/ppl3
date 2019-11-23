@@ -1,16 +1,10 @@
 
-        int main()
-        {
-            boolean check;
-            int value;
-            value=10;
-            if (check!=value)
-            {
-                return value;
-            }
-            else 
-            {
-                return 0;
-            }
+        int i;
+        int f(int a, int b){
+            return 200;
+        }
+        void main(){
+            int test;
+            test=f(test);
         }
         

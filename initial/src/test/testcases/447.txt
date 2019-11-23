@@ -1,13 +1,9 @@
 
-            int[] foo(float a[])
-            {
-                int value[200];
-                return value;
-            }
-            int main ()
-            {
-                int a[100];
-                foo(a);
-                return 0;
-            }
+        int foo;
+        void f(){
+            return;
+        }
+        void main(){
+            foo = f();
+        }
         

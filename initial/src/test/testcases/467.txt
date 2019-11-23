@@ -1,6 +1,5 @@
 
-            int foo()
-            {
-                return 0;
-            }
+        int a;
+        float b;
+        boolean main;
         

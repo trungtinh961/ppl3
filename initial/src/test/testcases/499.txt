@@ -1,9 +1,7 @@
 
-        int[] foo(int a[]){
-            return a;
+        int foo;
+        void main()
+        {
+            foo(1);
         }
-        void main(){
-                int a[10];
-                (foo(a)[1])[2]; 
-            }
         

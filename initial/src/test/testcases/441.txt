@@ -1,8 +1,6 @@
 
-        void main()
-        {
-            boolean check;
-            check=1;
+        void main(){
+            int a[69];
+            a = 69;        
         }
-        
         

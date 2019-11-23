@@ -1,13 +1,9 @@
 
-            int foo(int a[],int b[])
-            {
-                return a+b;
-            }
-            int main ()
-            {
-                int a[100];
-                int b[100];
-                foo(a,b);
-                return 0;
-            }
+        int[] foo(int a[]){
+            return a;
+        }
+        int main(){
+            int arr[69];
+            return foo(foo(foo(arr)))[1]/foo(foo(foo(arr)))[0];
+        }
         

@@ -1,9 +1,12 @@
 
-        void main()
-        {
-            int a;
-            do
-                a=100;
-            while(a);
-        }
+            int a,b;
+            float c;            
+            int main(int a, boolean b) {                
+                do {
+                    if (a == 2) {
+                        b = false;
+                    }
+                } while b;
+                return c;
+            }
         

@@ -1,18 +1,8 @@
 
-        float [] foo(int a[])
-        {
-            return a;
-        }
-        void main(){
-            boolean a,b;
-            float array[10];
-            foo(array);
-            if ( a && b )
-            {
-                if( a || b ){a || b ;}
-                else
-                {}
-            }
-            else{a && b ;}
+        int main(){
+            boolean boo; 
+            boo=false;
+            1-boo;
+            return 1;
         }
         

@@ -1,13 +1,18 @@
 
-        int foo;
-        int foo()
-        {
-            return 1;
+        int main()
+        {   
+            do
+            {
+                if(n1 > n2)
+                    n1 = n1 - n2;
+                else
+                    n2 = n2 - n1;
+            }
+            while(n1!=n2);
+            return foo(1);
         }
-        int main(int a)
-        {
-            
-           return foo();
+        int foo(float a){
+            return !a;
         }
-        
+        int n1, n2; 
         

@@ -1,12 +1,15 @@
 
-            int foo()
-            {
-                return 0;
-            }
-            int main()
-            {
-                int a;
-                a=1.5;
-                return foo();
-            }
+        void foo1()
+        {
+            foo2();
+        }
+        void foo2()
+        {
+            foo3();
+        }
+        void foo3()
+        {
+            foo1();
+        }
+        void main(){}
         

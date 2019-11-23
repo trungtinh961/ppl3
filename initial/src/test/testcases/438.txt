@@ -1,11 +1,12 @@
 
-        float test(){
-            float a;
-            a[20]=10;
-            return 1.5;
-        }
-        float main()
-        {
-            return test();
+        int main(){
+            boolean c;
+            int i;
+            i=3;
+            if (i>0){
+                int d;
+                d=true;
+            }
+            return i;
         }
         

@@ -1,12 +1,9 @@
 
-            int main()
-            {
-                int i;
-                
-                for (i=1;i<100;i=i+1)
-                    i=i+1;
-                continue;
-               
-                return 0;
-            }
+        int foo(int a){
+            return a;
+        }
+        void main(){
+            a+foo(a)=foo(a)+a;
+        }
+        int a;
         

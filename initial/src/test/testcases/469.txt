@@ -1,11 +1,4 @@
 
-            int func(int main)
-            {
-                return main;
-            }
-            int foo()
-            {
-                int main;
-                return main;
-            }
+        int a;
+        float main;
         

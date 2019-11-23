@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(StringLiteral(Dang Van Dung))
+No Entry Point
