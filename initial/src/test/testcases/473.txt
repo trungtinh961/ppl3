@@ -1,15 +1,19 @@
 
-        void foo1()
-        {
-            foo2();
-        }
-        void foo2()
-        {
-            foo3();
-        }
-        void foo3()
-        {
-            foo1();
-        }
-        void main(){}
+            boolean IsPrime(int number)
+            {
+                int i;
+                for (i = 2; i < number; i = i + 1)
+                {
+                    if (number % i == 0 && i != number)
+                        return false;
+                }
+                return true;
+            }
+            void foo(){
+                putBool(IsPrime(15));
+                foo();
+            }
+            void main(){
+                putBool(IsPrime(15));
+            }
         

@@ -1,6 +1,11 @@
 
-        int main(){
-            if (true)
-                return 1;
-        }
+            boolean canWork() {
+                int energy;
+                if (energy == 0) return false;
+            }
+            void main() {
+                if (!canWork())
+                    putString("ppl so hard!");
+                return;
+            }
         

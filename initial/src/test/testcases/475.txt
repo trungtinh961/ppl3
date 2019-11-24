@@ -1,5 +1,14 @@
 
-        void main(){
-            1+1=2; 
-        }
+            void foo() {
+                putString("only 24 test left!");
+            }
+            int main() {
+                int i,a[10];
+                putString("In cac so le:\n");
+                for(foo() = 1; i <= 10; i=i+1) {
+                    if(i%2 != 0)
+                        putInt(i);
+                }
+                return 0;
+            }
         

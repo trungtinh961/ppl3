@@ -1,4 +1,10 @@
 
-        void main(){}
-        int foo(){}
+            int main() {
+                float a,b;
+                if (a < b) {
+                    putString("a less than b");
+                    return 0;
+                }
+                else putString("a greater than b");
+            }
         

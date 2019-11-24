@@ -1,5 +1,15 @@
 
-        int main(){
-            int a,b;
-        }
+            int main() {
+                int a, b, c, min;
+                min = a;
+                if (min > b) {
+                    min = b;
+                    return 0;
+                }
+                if (min > c) {
+                    min = c;
+                    return 1;
+                }
+                putInt(min);
+            }
         

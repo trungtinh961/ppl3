@@ -241,8 +241,9 @@ class StaticChecker(BaseVisitor,Utils):
         expr3 = self.visit(ast.expr3,c)        
         if (type(expr1), type(expr2), type(expr3)) != (IntType, BoolType, IntType):
             raise TypeMismatchInStatement(ast)
-        self.visit(ast.loop, (c[0], c[1], True, c[3], c[4]))
-
+        at = self.visit(ast.loop, (c[0], c[1], True, c[3], c[4]))
+        return False
+        
     def visitDowhile(self,ast,c):
         exp = self.visit(ast.exp, c)
         if type(exp) != BoolType:

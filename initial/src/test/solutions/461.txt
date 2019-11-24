@@ -1,1 +1,1 @@
-Function foo Not Return 
+Function main Not Return 

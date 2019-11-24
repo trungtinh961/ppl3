@@ -1,5 +1,13 @@
 
-        int a;
-        float b;
-        boolean main;
+            int main(){
+                int i,j;
+                for (i = 0; i < 10; i = i + 1) {
+                    for (j = 10; j >= 0; j = j - 1) {
+                        if (i == j) return 0;
+                        else return 1;
+                    }
+                }
+                if (i == j) break;
+                return j;
+            } 
         

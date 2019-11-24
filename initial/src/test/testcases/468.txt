@@ -1,5 +1,14 @@
 
-        void foo(){}
-        int main;
-        void f(){}
+            int main(){
+                int i,a;
+                for (i = 0; i < 10; i = i + 1){
+                    if (i == a % getInt()) break;
+                    else continue;
+                do 
+                    break;
+                while (i == 0);                
+                }
+                break;
+                return 0;
+            }
         

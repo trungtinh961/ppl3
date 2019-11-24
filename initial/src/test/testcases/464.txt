@@ -1,10 +1,10 @@
 
-        int main(){
-            if(true)
-                if(false)
-                    return 1;
-                else
-                    return 0;
-            else return 2;
-        }
+            float[] main() {
+                int a,b;
+                float d[5];
+                boolean c;
+                for(a;c;b) {
+                    return d;
+                }
+            }
         

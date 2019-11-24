@@ -1,7 +1,10 @@
 
-        int main(){
-            int i;
-            for(i=1;i<69;i=i+1)
-                return i;
-        }
+            int main(int a, int b){
+                if (true) {
+                    if (a == b) {
+                        return 0;
+                    }
+                }
+                else return 1;
+            }
         

@@ -1,5 +1,13 @@
 
-        int foo(){
-            return 0;
-        }
+            boolean[] foo() {
+                int a,b;
+                boolean d[5];
+                boolean c;
+                do {
+                    return d;
+                } while c && d[0] || d[1];
+            }
+            int main(){
+                if (foo()[0]) putString("ppl very hard !!");
+            }
         

@@ -1,11 +1,11 @@
 
-        boolean foo(){
-            return true;
-        }
-        int foo1(){
-            return 1;
-        }
-        void main(){
-            continue;
-        }
+            int main(int array[]) {
+                int max,i,length;
+                max = array[0];
+                for (i; i < length; i=i+1) {
+                    if (max < array[i])
+                        max = array[i];
+                }
+                putInt(max);
+            }
         

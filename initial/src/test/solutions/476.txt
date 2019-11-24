@@ -1,1 +1,1 @@
-Not Left Value: CallExpr(Id(foo),[])
+Not Left Value: BinaryOp(+,Id(year),IntLiteral(2))

@@ -1,8 +1,11 @@
 
-        int foo(){ 
-            return 0; 
-        }
-        void main(){
-            foo()=1;
-        }
+            int main() {
+                int year;
+                year + 2 = 2016;                
+                if (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0))
+                    putString("la mot nam nhuan");
+                else
+                    putString("khong phai la nam nhuan");                    
+                return 0;
+            }
         

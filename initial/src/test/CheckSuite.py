@@ -832,9 +832,357 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Expression: CallExpr(Id(foo),[CallExpr(Id(foo),[Id(x),Id(y)]),Id(a)])"
         self.assertTrue(TestChecker.test(input,expect,458))
 
+    def test_functionNotReturn_int(self):
+        input = """
+            int main(int array[]) {
+                int max,i,length;
+                max = array[0];
+                for (i; i < length; i=i+1) {
+                    if (max < array[i])
+                        max = array[i];
+                }
+                putInt(max);
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,459))
 
+    def test_functionNotReturn_return_in_ifStmt(self):
+        input = """
+            int main() {
+                int a, b, c, min;
+                min = a;
+                if (min > b) {
+                    min = b;
+                    return 0;
+                }
+                if (min > c) {
+                    min = c;
+                    return 1;
+                }
+                putInt(min);
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,460))
 
+    def test_functionNotReturn_else_not_return(self):
+        input = """
+            int main() {
+                float a,b;
+                if (a < b) {
+                    putString("a less than b");
+                    return 0;
+                }
+                else putString("a greater than b");
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,461))
 
+    def test_functionNotReturn_if_return(self):
+        input = """
+            boolean canWork() {
+                int energy;
+                if (energy == 0) return false;
+            }
+            void main() {
+                if (!canWork())
+                    putString("ppl so hard!");
+                return;
+            }
+        """
+        expect = "Function canWork Not Return "
+        self.assertTrue(TestChecker.test(input,expect,462))
+
+    def test_functionNotReturn_if_nested(self):
+        input = """
+            int main(int a, int b){
+                if (true) {
+                    if (a == b) {
+                        return 0;
+                    }
+                }
+                else return 1;
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,463))
+
+    def test_functionNotReturn_return_in_for(self):
+        input = """
+            float[] main() {
+                int a,b;
+                float d[5];
+                boolean c;
+                for(a;c;b) {
+                    return d;
+                }
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,464))
+
+    def test_functionNotReturn_return_in_dowhile(self):
+        input = """
+            boolean[] foo() {
+                int a,b;
+                boolean d[5];
+                boolean c;
+                do {
+                    return d;
+                } while c && d[0] || d[1];
+            }
+            int main(){
+                if (foo()[0]) putString("ppl very hard !!");
+            }
+        """
+        expect = "Function main Not Return "
+        self.assertTrue(TestChecker.test(input,expect,465))
+
+    def test_breakNotInLoop_in_func(self):
+        input = """
+            void main(){
+                int i,j;
+                for (i = 0; i < 10; i = i + 1) {
+                    for (j = 10; j >= 0; j = j - 1) {
+                        if (i == j) putIntLn(i);
+                        break;
+                    }
+                }
+                break;
+            }  
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,466))
+
+    def test_breakNotInLoop_in_if(self):
+        input = """
+            int main(){
+                int i,j;
+                for (i = 0; i < 10; i = i + 1) {
+                    for (j = 10; j >= 0; j = j - 1) {
+                        if (i == j) return 0;
+                        else return 1;
+                    }
+                }
+                if (i == j) break;
+                return j;
+            } 
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,467))
+
+    def test_breakNotInLoop_in_dowhile(self):
+        input = """
+            int main(){
+                int i,a;
+                for (i = 0; i < 10; i = i + 1){
+                    if (i == a % getInt()) break;
+                    else continue;
+                do 
+                    break;
+                while (i == 0);                
+                }
+                break;
+                return 0;
+            }
+        """
+        expect = "Break Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,468))
+
+    def test_continueNotInLoop_in_main(self):
+        input = """
+            int i;
+            int f() {
+                return 200;
+            }
+            void main () {
+                int main ;
+                main = f();
+                putIntLn (main);
+                {
+                    int i;
+                    int main;
+                    int f;
+                    main = f = i = 100;
+                    putIntLn(i);
+                    putIntLn(main);
+                    putIntLn(f);
+                }
+                putIntLn(main);
+                continue;
+            } 
+        """
+        expect = "Continue Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,469))
+
+    def test_continueNotInLoop_in_else(self):
+        input = """
+            int[] foo(boolean a, float b){
+                int c[5],d[10];
+                if (c[0] >= 10) return c;
+                else {
+                    continue;
+                    return d;
+                }
+            }
+            int main() {
+                putIntLn(foo(a>=b,00.E2019)[10]);
+                return 0;
+            }
+        """
+        expect = "Continue Not In Loop"
+        self.assertTrue(TestChecker.test(input,expect,470))
+
+    def test_UnreachableFunction_explicit(self):
+        input = """
+            float foo() {
+                return getFloat();
+            }
+            void main(){
+                putString("ppl nearly done!!");
+            }
+        """
+        expect = "Unreachable Function: foo"
+        self.assertTrue(TestChecker.test(input,expect,471))
+
+    def test_unreachableFunction_callby_another(self):
+        input = """
+            boolean IsPrime(int number)
+            {
+                int i;
+                for (i = 2; i < number; i = i + 1)
+                {
+                    if (number % i == 0 && i != number)
+                        return false;
+                }
+                return true;
+            }
+            void foo(){
+                putBool(IsPrime(15));
+            }
+            void main(){
+                putBool(IsPrime(15));
+            }
+        """
+        expect = "Unreachable Function: foo"
+        self.assertTrue(TestChecker.test(input,expect,472))
+
+    def test_unreachableFunction_call_byself(self):
+        input = """
+            boolean IsPrime(int number)
+            {
+                int i;
+                for (i = 2; i < number; i = i + 1)
+                {
+                    if (number % i == 0 && i != number)
+                        return false;
+                }
+                return true;
+            }
+            void foo(){
+                putBool(IsPrime(15));
+                foo();
+            }
+            void main(){
+                putBool(IsPrime(15));
+            }
+        """
+        expect = "Unreachable Function: foo"
+        self.assertTrue(TestChecker.test(input,expect,473))
+
+    def test_unreachableFunction_call_Indirect(self):
+        input = """
+            float[] foo1() {
+                float a[10];
+                foo2();
+                return a;
+            }
+            int foo2() {
+                if (1 == 5) return 1;
+                else return 2;
+            }
+            void foo3() {
+                putString("only 25 test!");
+            }
+            void main(){
+                boolean flag;
+                if (flag) {
+                    foo1();
+                }
+                else foo1();
+            }
+        """
+        expect = "Unreachable Function: foo3"
+        self.assertTrue(TestChecker.test(input,expect,474))
+
+    def test_notLeftValue_func_lhs(self):
+        input = """
+            void foo() {
+                putString("only 24 test left!");
+            }
+            int main() {
+                int i,a[10];
+                putString("In cac so le:\\n");
+                for(foo() = 1; i <= 10; i=i+1) {
+                    if(i%2 != 0)
+                        putInt(i);
+                }
+                return 0;
+            }
+        """
+        expect = "Not Left Value: CallExpr(Id(foo),[])"
+        self.assertTrue(TestChecker.test(input,expect,475))
+
+    def test_notLeftValue_add_op(self):
+        input = """
+            int main() {
+                int year;
+                year + 2 = 2016;                
+                if (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0))
+                    putString("la mot nam nhuan");
+                else
+                    putString("khong phai la nam nhuan");                    
+                return 0;
+            }
+        """
+        expect = "Not Left Value: BinaryOp(+,Id(year),IntLiteral(2))"
+        self.assertTrue(TestChecker.test(input,expect,476))
+
+    def test_notLeftValue_intlit(self):
+        input = """
+            int tinhgiaithua(int i) {
+                if(i <= 1)
+                {
+                    return 1;
+                }
+                return i * tinhgiaithua(i - 1);
+            }
+            int  main() {
+                int i;
+                10 = i;
+                putString("Gia tri giai thua la");
+                putInt(tinhgiaithua(i));            
+                return 0;
+            }
+        """
+        expect = "Not Left Value: IntLiteral(10)"
+        self.assertTrue(TestChecker.test(input,expect,477))
+
+    # def test_notLeftValue_(self):
+    #     input = """
+            
+    #     """
+    #     expect = ""
+    #     self.assertTrue(TestChecker.test(input,expect,475))
+
+    # def test_notLeftValue_(self):
+    #     input = """
+            
+    #     """
+    #     expect = ""
+    #     self.assertTrue(TestChecker.test(input,expect,475))
 
 
 
