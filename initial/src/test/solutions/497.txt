@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(=,Id(result),CallExpr(Id(getPower),[Id(base),Id(power)]))
+Type Mismatch In Statement: If(Id(a),If(Id(b),Id(b),Id(c)))

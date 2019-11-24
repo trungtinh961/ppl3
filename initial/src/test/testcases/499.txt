@@ -1,7 +1,6 @@
 
-        int foo;
-        void main()
-        {
-            foo(1);
-        }
+            int main() {
+                int a,b,c,d,e,f,g,h; 
+                a = b+c*d/e-f<g==h;
+            }
         

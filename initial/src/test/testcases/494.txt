@@ -1,18 +1,20 @@
 
-        int main()
-        {   
-            do
+            void main()
             {
-                if(n1 > n2)
-                    n1 = n1 - n2;
-                else
-                    n2 = n2 - n1;
+                int num, binary_val, decimal_val, base, rem;
+                decimal_val = 0; base = 1;
+                putString("Nhap so nhi phan(1 & 0): ");
+                num = getInt(); /* maximum five digits */
+                binary_val = num;
+                do
+                {
+                    rem = num % 10;
+                    decimal_val = decimal_val + rem * base;
+                    num = num / 10 ;
+                    base = base * 2;
+                } while (num > 0);
+                putString("So nhi phan = ");  putInt(binary_val);
+                putString("Gia tri he thap phan = "); putInt(decimal_val);
+                return 0;
             }
-            while(n1!=n2);
-            return foo(1);
-        }
-        int foo(float a){
-            return !a;
-        }
-        int n1, n2; 
         

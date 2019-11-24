@@ -1,20 +1,22 @@
 
-        void printf(string str){}
-        void scanf(float a){}
-        string int2str(int a){ return "Kael99" ;}
-        int main()
-        {
-            int i, n, t1, t2, nextTerm;
-            printf("Enter the number of terms: ");
-            scanf(n);
-            printf("Fibonacci Series: ");
-            for (i = 1; i <= n; i=i+1)
+            void main()
             {
-                printf(int2str(t1));
-                nextTerm = t1 + t2;
-                t1 = t2;
-                t2 = nextTerm;
+                int n;
+                float a, b, c ;
+                float R;
+                float P;
+                float S;
+                do
+                {
+                    putString("Nhap chieu rong hcn: ");
+                    a = getFloat();
+                    putString("Nhap chieu dai hcn: ");
+                    b = getFloat();
+                }
+                while(a < 0 || b  = 0);
+                P = (a + b)*2;
+                S = a * b;
+                putString("Chu vi hinh vuong :"); putFloat(P);
+                putString("Dien tich hinh vuong: "); putFloat(S);               
             }
-            return 0;
-        }
         

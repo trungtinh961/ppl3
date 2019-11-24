@@ -1,9 +1,11 @@
 
-        int foo(){
-            return 0;
-        }
-        int main(){
-            int a,b,c;
-            return a=b+c=foo();
-        }
+            float f[4];
+            void test(){}
+            //float[] foo(){return f;}
+            //float[] foo2(){return f;}
+            float[] main(int argc[], string args){
+                float f[10];
+                f["ppl"];
+                return f;
+            }
         

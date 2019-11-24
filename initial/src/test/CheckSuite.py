@@ -1308,40 +1308,254 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Statement: If(BinaryOp(=,Id(n),IntLiteral(0)),Block([CallExpr(Id(putInt),[IntLiteral(0)])]))"
         self.assertTrue(TestChecker.test(input,expect,485))
 
-    # def test_(self):
-    #     input = """
-            
-    #     """
-    #     expect = "Undeclared Function: printf"
-    #     self.assertTrue(TestChecker.test(input,expect,48))
+    def test_notleft_intlit(self):
+        input = """
+            float f[4];
+            float foo2(){
+                float tfloat;
+                boolean boo;
+                return 1.0;
+            }
+            int main(int argc, string args){
+                //argc + f[1] = 1.3;
+                foo2();
+                1 = 0;
+                return 0;
+            }
+        """
+        expect = "Not Left Value: IntLiteral(1)"
+        self.assertTrue(TestChecker.test(input,expect,486))
 
-    # def test_(self):
-    #     input = """
-            
-    #     """
-    #     expect = "Undeclared Function: printf"
-    #     self.assertTrue(TestChecker.test(input,expect,48))
+    def test_mismatch_float_string(self):
+        input = """
+            float f[4];
+            void test(){}
+            //float[] foo(){return f;}
+            //float[] foo2(){return f;}
+            float[] main(int argc[], string args){
+                float f[10];
+                f["ppl"];
+                return f;
+            }
+        """
+        expect = "Type Mismatch In Expression: ArrayCell(Id(f),StringLiteral(ppl))"
+        self.assertTrue(TestChecker.test(input,expect,487))
 
-    # def test_(self):
-    #     input = """
-            
-    #     """
-    #     expect = "Undeclared Function: printf"
-    #     self.assertTrue(TestChecker.test(input,expect,48))
+    def test_mismatch_for_boolexpr(self):
+        input = """
+        int main() {
+            int original[10];
+            int copied[10];
+            int loop;        
+            for(loop = 0; loop < 10; loop = loop+1) {
+                copied[loop] = original[loop];
+            }
+            putString("Sao chep mang trong C:");
+            putString("Mang ban dau -> Mang sao chep ");        
+            for(loop = 0; loop + 10; loop = loop+1) {
+                putInt(original[loop]);
+                putInt(copied[loop]);
+            }        
+            return 0;
+        }
+        """
+        expect = "Type Mismatch In Statement: For(BinaryOp(=,Id(loop),IntLiteral(0));BinaryOp(+,Id(loop),IntLiteral(10));BinaryOp(=,Id(loop),BinaryOp(+,Id(loop),IntLiteral(1)));Block([CallExpr(Id(putInt),[ArrayCell(Id(original),Id(loop))]),CallExpr(Id(putInt),[ArrayCell(Id(copied),Id(loop))])]))"
+        self.assertTrue(TestChecker.test(input,expect,488))
 
-    # def test_(self):
-    #     input = """
-            
-    #     """
-    #     expect = "Undeclared Function: printf"
-    #     self.assertTrue(TestChecker.test(input,expect,48))
+    def test_undecl_callexpr(self):
+        input = """
+            void main()
+            {
+                int n;
+                float a, b, c ;
+                float R;
+                float P;
+                float S;
+                do
+                {
+                    putString("Nhap cac canh cua tam giac:");
+                    a = getInt();
+                    b = getInt();
+                    c = getInt();
+                }
+                while(a < 0 || b < 0 || c < 0 || (a + b) <= c || (a + c) <= b || (b + c) <= a);
+                P = (a + b + c);
+                S = sqrt(P*(P/2 - a)*(P/2 - b)*(P/2 - c)/2);
+                putString("Chu vi tam giac : "); putFloat(P);
+                putString("Dien tich tam giac :"); putFloat(S);
+            }
+        """
+        expect = "Undeclared Function: sqrt"
+        self.assertTrue(TestChecker.test(input,expect,489))
+
+    def test_unreachablefunction_many_func(self):
+        input="""
+            int foo()
+            {
+                return foo();
+            }
+            string foo1(string a)
+            {
+                foo();
+                foo2();
+                foo1("Done");
+                return a;
+            }
+            boolean foo2()
+            {
+                return false;
+            }
+            int main()
+            {
+                return 0;
+            }
+        """        
+        expect = "Unreachable Function: foo1"
+        self.assertTrue(TestChecker.test(input,expect,490))
 
 
+    def test_mismatch_bool_or_int(self):
+        input="""
+            void main()
+            {
+                int n;
+                float a, b, c ;
+                float R;
+                float P;
+                float S;
+                do
+                {
+                    putString("Nhap chieu rong hcn: ");
+                    a = getFloat();
+                    putString("Nhap chieu dai hcn: ");
+                    b = getFloat();
+                }
+                while(a < 0 || b  = 0);
+                P = (a + b)*2;
+                S = a * b;
+                putString("Chu vi hinh vuong :"); putFloat(P);
+                putString("Dien tich hinh vuong: "); putFloat(S);               
+            }
+        """        
+        expect = "Type Mismatch In Expression: BinaryOp(||,BinaryOp(<,Id(a),IntLiteral(0)),Id(b))"
+        self.assertTrue(TestChecker.test(input,expect,491))
 
+    def test_mismatch_in_builinfunc(self):
+        input="""
+            void main()
+            {
+                float C; C = 0;
+                float F;
+                putString("Nhap vao nhiet do F = ");
+                F = getFloat();
+                C = 5*(F - 32)/9.0;
+                putString("Nhieu do Celcius = "); putInt(C);
+            }
+        """        
+        expect = "Type Mismatch In Expression: CallExpr(Id(putInt),[Id(C)])"
+        self.assertTrue(TestChecker.test(input,expect,492))
 
+    def test_undecl_constant(self):
+        input="""
+            void main()
+            {
+                int n;
+                float a, b, c ;
+                float R;
+                float P;
+                float S;
+                do
+                {
+                    putString("Nhap ban kinh duong tron:");
+                    R = getFloat();
+                }
+                while(R <= 0);
+                P = 2 * PI * R;
+                S = PI * R * R;
+                putString("Chu vi hinh tron : ");  putFloat(P);
+                putString("Dien tich hinh tron :"); putFloat(S);
+            }
+        """        
+        expect = "Undeclared Identifier: PI"
+        self.assertTrue(TestChecker.test(input,expect,493))
 
+    def test_mismatch_void_return_int(self):
+        input="""
+            void main()
+            {
+                int num, binary_val, decimal_val, base, rem;
+                decimal_val = 0; base = 1;
+                putString("Nhap so nhi phan(1 & 0): ");
+                num = getInt(); /* maximum five digits */
+                binary_val = num;
+                do
+                {
+                    rem = num % 10;
+                    decimal_val = decimal_val + rem * base;
+                    num = num / 10 ;
+                    base = base * 2;
+                } while (num > 0);
+                putString("So nhi phan = ");  putInt(binary_val);
+                putString("Gia tri he thap phan = "); putInt(decimal_val);
+                return 0;
+            }
+        """        
+        expect = "Type Mismatch In Statement: Return(IntLiteral(0))"
+        self.assertTrue(TestChecker.test(input,expect,494))
 
+    def test_mismatchexpr_funcall_not_same_type(self):
+        input="""
+            int foo(int a)
+            {
+                return a;
+            }
+            int main ()
+            {
+                float a;
+                foo(a);
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(a)])"
+        self.assertTrue(TestChecker.test(input,expect,495))
 
+    def test_mismatch_in_complex_expr(self):
+        input="""
+            int main() {
+                int a;
+                a = 5 * 9 / 10 + 15 % 8 && 1 < 10;
+            }
+        """        
+        expect = "Type Mismatch In Expression: BinaryOp(&&,BinaryOp(+,BinaryOp(/,BinaryOp(*,IntLiteral(5),IntLiteral(9)),IntLiteral(10)),BinaryOp(%,IntLiteral(15),IntLiteral(8))),BinaryOp(<,IntLiteral(1),IntLiteral(10)))"
+        self.assertTrue(TestChecker.test(input,expect,496))
 
+    def test_mismatch_in_if_condition(self):
+        input="""
+            void main() {
+                int a,b,c;
+                if (a) if (b) b; else c;
+            }
+        """        
+        expect = "Type Mismatch In Statement: If(Id(a),If(Id(b),Id(b),Id(c)))"
+        self.assertTrue(TestChecker.test(input,expect,497))
 
+    def test_undecl_in_for(self):
+        input="""
+            int main(){
+                for(i = 1; i < 10; i=i+1) {
+                    putIntLn("Hello world!\\n");
+                }
+            } 
+        """        
+        expect = "Undeclared Identifier: i"
+        self.assertTrue(TestChecker.test(input,expect,498))
 
+    def test_mismatch_in_complex_id_expr(self):
+        input="""
+            int main() {
+                int a,b,c,d,e,f,g,h; 
+                a = b+c*d/e-f<g==h;
+            }
+        """        
+        expect = "Type Mismatch In Expression: BinaryOp(==,BinaryOp(<,BinaryOp(-,BinaryOp(+,Id(b),BinaryOp(/,BinaryOp(*,Id(c),Id(d)),Id(e))),Id(f)),Id(g)),Id(h))"
+        self.assertTrue(TestChecker.test(input,expect,499))

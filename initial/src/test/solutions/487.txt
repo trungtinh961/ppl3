@@ -1,1 +1,1 @@
-Not Left Value: BinaryOp(+,Id(b),Id(c))
+Type Mismatch In Expression: ArrayCell(Id(f),StringLiteral(ppl))

@@ -1,15 +1,21 @@
 
-        int main(){
-            return foo(a,b);
-        }
-        int foo(int a[], float b){
-            if (a[0] == 0) 
-                return a[0];
-            else
+            int foo()
             {
-                return foo(a,b);
+                return foo();
             }
-        }
-        int a[10];
-        float b;
+            string foo1(string a)
+            {
+                foo();
+                foo2();
+                foo1("Done");
+                return a;
+            }
+            boolean foo2()
+            {
+                return false;
+            }
+            int main()
+            {
+                return 0;
+            }
         

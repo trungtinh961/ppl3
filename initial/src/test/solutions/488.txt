@@ -1,1 +1,1 @@
-Type Mismatch In Expression: UnaryOp(!,Id(b))
+Type Mismatch In Statement: For(BinaryOp(=,Id(loop),IntLiteral(0));BinaryOp(+,Id(loop),IntLiteral(10));BinaryOp(=,Id(loop),BinaryOp(+,Id(loop),IntLiteral(1)));Block([CallExpr(Id(putInt),[ArrayCell(Id(original),Id(loop))]),CallExpr(Id(putInt),[ArrayCell(Id(copied),Id(loop))])]))

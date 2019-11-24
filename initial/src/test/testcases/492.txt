@@ -1,20 +1,11 @@
 
-        void printf(string str){}
-        void scanf(float a){}
-        int main()
-        {
-            float number;
-            printf("Enter a number: ");
-            scanf(number);
-            if (number <= 0.0)
+            void main()
             {
-                if (number == 0.0)
-                    printf("You entered 0.");
-                else
-                    printf("You entered a negative number.");
+                float C; C = 0;
+                float F;
+                putString("Nhap vao nhiet do F = ");
+                F = getFloat();
+                C = 5*(F - 32)/9.0;
+                putString("Nhieu do Celcius = "); putInt(C);
             }
-            else
-                printf("You entered a positive number.");
-            return 0;
-        }
         

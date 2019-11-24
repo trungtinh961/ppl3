@@ -1,1 +1,1 @@
-Function foo Not Return 
+Not Left Value: IntLiteral(1)

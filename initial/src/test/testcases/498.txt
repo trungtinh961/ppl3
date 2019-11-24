@@ -1,16 +1,7 @@
 
-        void main () {
-            float a;
-            a=getInt();
-            putInt(69);
-            putIntLn(96);
-            a=getFloat();
-            putFloat(69);
-            putFloatLn(69.96);
-            putBool(true&&false);
-            putBoolLn(true||false);
-            putString("Hello hello, can u hear me?");
-            putStringLn("Hello hello, can u hear me?");
-            putLn();
-        }
+            int main(){
+                for(i = 1; i < 10; i=i+1) {
+                    putIntLn("Hello world!\n");
+                }
+            } 
         

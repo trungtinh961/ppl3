@@ -1,8 +1,17 @@
 
-        int main()
-        {
-            int a,b,c;
-            a = !b + -a;
-            return a;
+        int main() {
+            int original[10];
+            int copied[10];
+            int loop;        
+            for(loop = 0; loop < 10; loop = loop+1) {
+                copied[loop] = original[loop];
+            }
+            putString("Sao chep mang trong C:");
+            putString("Mang ban dau -> Mang sao chep ");        
+            for(loop = 0; loop + 10; loop = loop+1) {
+                putInt(original[loop]);
+                putInt(copied[loop]);
+            }        
+            return 0;
         }
         

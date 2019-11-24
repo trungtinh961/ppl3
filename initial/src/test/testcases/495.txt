@@ -1,17 +1,12 @@
 
-        float main()
-        {
-            int n, i, sum;
-            for(i=1; i <= n; i=i+1)
+            int foo(int a)
             {
-                sum = sum+i;
+                return a;
             }
-            return foo1();
-        }
-        int foo1(){
-            return foo2();
-        }
-        float foo2(){
-            return foo1();
-        }
+            int main ()
+            {
+                float a;
+                foo(a);
+                return 0;
+            }
         

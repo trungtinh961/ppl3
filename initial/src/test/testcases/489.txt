@@ -1,24 +1,22 @@
 
-        int main(){
-            do
+            void main()
             {
+                int n;
+                float a, b, c ;
+                float R;
+                float P;
+                float S;
+                do
                 {
-                    if (b>c)
-                        return a+1;
-                    else
-                        return b-1;                    
+                    putString("Nhap cac canh cua tam giac:");
+                    a = getInt();
+                    b = getInt();
+                    c = getInt();
                 }
+                while(a < 0 || b < 0 || c < 0 || (a + b) <= c || (a + c) <= b || (b + c) <= a);
+                P = (a + b + c);
+                S = sqrt(P*(P/2 - a)*(P/2 - b)*(P/2 - c)/2);
+                putString("Chu vi tam giac : "); putFloat(P);
+                putString("Dien tich tam giac :"); putFloat(S);
             }
-            {
-                a+b;
-            }
-            while (a<5);
-            foo();
-            foo();
-            foo();
-            foo();
-            return 1;
-        }
-        int a,b,c;
-        void foo(){}
         

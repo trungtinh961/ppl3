@@ -1,20 +1,6 @@
 
-        float getPower(int b,int p)
-        {
-            float result;
-            if(p==0)
-                return result;
-            else 
-            {
-                result=b*(getPower(b,p-1));
-                return result;
+            void main() {
+                int a,b,c;
+                if (a) if (b) b; else c;
             }
-        }
-        int main()
-        {
-            int base,power;
-            int result;     
-            result=getPower(base,power);     
-            return result;
-        }
         
