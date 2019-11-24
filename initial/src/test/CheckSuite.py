@@ -1170,20 +1170,171 @@ class CheckSuite(unittest.TestCase):
         expect = "Not Left Value: IntLiteral(10)"
         self.assertTrue(TestChecker.test(input,expect,477))
 
-    # def test_notLeftValue_(self):
+    def test_notLeftValue_arraycell(self):
+        input = """
+            void foo (float a[]) {}
+            void main (float x[]) {
+                float y[10];
+                float z[10];
+                foo(x); 
+                foo(y); 
+                foo(z); 
+                z[0] * y[1] = 10; 
+            }
+        """
+        expect = "Not Left Value: BinaryOp(*,ArrayCell(Id(z),IntLiteral(0)),ArrayCell(Id(y),IntLiteral(1)))"
+        self.assertTrue(TestChecker.test(input,expect,478))
+
+    def test_notLeftValue_(self):
+        input = """
+            void foo() {
+                putString("20 left!");
+            }
+            void main(){                
+                foo() = 10;
+            }
+        """
+        expect = "Not Left Value: CallExpr(Id(foo),[])"
+        self.assertTrue(TestChecker.test(input,expect,479))
+
+    def test_var_hide_func(self):
+        input = """
+            void sum() {
+                putString("20 left!");
+            }
+            int main() {
+                int array[10];
+                int sum, loop;
+                sum = 0;        
+                putString("Chuong trinh tinh tong gia tri cac phan tu mang: \\n\\n");
+                for(loop = 9; loop >= 0; loop = loop - 1) {
+                    sum = sum + array[loop];      
+                }
+                putString("Tong gia tri cua mang la: %d.");
+                putInt(sum);
+                return 0;
+            }
+        """
+        expect = "Unreachable Function: sum"
+        self.assertTrue(TestChecker.test(input,expect,480))
+
+    def test_UndeclFunc_in_complex_program(self):
+        input = """
+            int main() {
+                int array[10];
+                int loop, largest;
+                largest = array[0];        
+                printf("Chuong trinh tim phan tu lon nhat cua mang:\\n\\n"); 
+                for(loop = 1; loop < 10; loop = loop + 1) {
+                    if( largest < array[loop] ) 
+                        largest = array[loop];
+                }        
+                putString("Phan tu lon nhat cua mang la: "); 
+                putInt(largest);       
+                return 0;
+            }
+        """
+        expect = "Undeclared Function: printf"
+        self.assertTrue(TestChecker.test(input,expect,481))
+
+    def test_var_main(self):
+        input = """
+            int foo() {
+                a = false;
+                main = 10;
+                do {
+                    if (b) a; 
+                    continue;
+                } while !a;
+            } 
+            int main;  
+        """
+        expect = "No Entry Point"
+        self.assertTrue(TestChecker.test(input,expect,482))
+
+    def test_notleft_var_func(self):
+        input = """
+            int factorial(int n) {
+                int f;
+                for(f = 1; n > 1; n = n - 1)
+                    f = f* n;
+                return f;
+            }
+            int npr(int n,int r) {
+                return factorial(n)/factorial(n-r);
+            }
+            int main() {
+                int n, r;
+                r  + npr(n,r) = 3;                
+                putString("Tinh hoan vi:");
+                putInt(npr(n,r));
+                return 0;
+            }
+        """
+        expect = "Not Left Value: BinaryOp(+,Id(r),CallExpr(Id(npr),[Id(n),Id(r)]))"
+        self.assertTrue(TestChecker.test(input,expect,483))
+
+    def test_mismatch_func_builtin(self):
+        input = """
+            int main() {
+                int num;
+                putString("Nhap so dia:");
+                getInt(num);
+                TOH(num - 1, "A", "B", "C");
+                return (0);
+            }
+            void TOH(int num, string x, string y, string z) {
+                if (num > 0) {
+                    TOH(num - 1, x, z, y);
+                    putInt(x); putString("->"); putInt(y);
+                    TOH(num - 1, z, y, x);
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(getInt),[Id(num)])"
+        self.assertTrue(TestChecker.test(input,expect,484))
+
+    def test_mismatch_if(self):
+        input = """
+            int main() {
+                int n;
+                if (n = 0) {
+                    putInt(0);
+                }
+                putString("Gia tri lap phuong"); putInt(n*n*n);
+                return 0;
+            }
+        """
+        expect = "Type Mismatch In Statement: If(BinaryOp(=,Id(n),IntLiteral(0)),Block([CallExpr(Id(putInt),[IntLiteral(0)])]))"
+        self.assertTrue(TestChecker.test(input,expect,485))
+
+    # def test_(self):
     #     input = """
             
     #     """
-    #     expect = ""
-    #     self.assertTrue(TestChecker.test(input,expect,475))
+    #     expect = "Undeclared Function: printf"
+    #     self.assertTrue(TestChecker.test(input,expect,48))
 
-    # def test_notLeftValue_(self):
+    # def test_(self):
     #     input = """
             
     #     """
-    #     expect = ""
-    #     self.assertTrue(TestChecker.test(input,expect,475))
+    #     expect = "Undeclared Function: printf"
+    #     self.assertTrue(TestChecker.test(input,expect,48))
 
+    # def test_(self):
+    #     input = """
+            
+    #     """
+    #     expect = "Undeclared Function: printf"
+    #     self.assertTrue(TestChecker.test(input,expect,48))
+
+    # def test_(self):
+    #     input = """
+            
+    #     """
+    #     expect = "Undeclared Function: printf"
+    #     self.assertTrue(TestChecker.test(input,expect,48))
 
 
 

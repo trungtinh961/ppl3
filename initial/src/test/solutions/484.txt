@@ -1,1 +1,1 @@
-Type Mismatch In Expression: BinaryOp(||,BinaryOp(||,Id(a),Id(b)),Id(c))
+Type Mismatch In Expression: CallExpr(Id(getInt),[Id(num)])

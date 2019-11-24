@@ -1,9 +1,8 @@
 
-        int foo(int a){
-            return a;
-        }
-        void main(){
-            a+foo(a)=foo(a)+a;
-        }
-        int a;
+            void foo() {
+                putString("20 left!");
+            }
+            void main(){                
+                foo() = 10;
+            }
         

@@ -1,1 +1,1 @@
-Type Mismatch In Statement: Return(BinaryOp(=,Id(d),BinaryOp(=,Id(a),BinaryOp(=,Id(b),Id(c)))))
+Not Left Value: BinaryOp(+,Id(r),CallExpr(Id(npr),[Id(n),Id(r)]))

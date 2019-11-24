@@ -1,19 +1,17 @@
 
-        int i;
-        int f(){
-            return 200;
-        }
-        void main(){
-            int test;
-            test=f();
-            putIntLn(test);
-            {
-                int i, test, f;
-                test=f=i=100;
-                putIntLn(i);
-                putIntLn(test);
-                putIntLn(f);
+            void sum() {
+                putString("20 left!");
             }
-            putIntLn(test);
-        }
+            int main() {
+                int array[10];
+                int sum, loop;
+                sum = 0;        
+                putString("Chuong trinh tinh tong gia tri cac phan tu mang: \n\n");
+                for(loop = 9; loop >= 0; loop = loop - 1) {
+                    sum = sum + array[loop];      
+                }
+                putString("Tong gia tri cua mang la: %d.");
+                putInt(sum);
+                return 0;
+            }
         

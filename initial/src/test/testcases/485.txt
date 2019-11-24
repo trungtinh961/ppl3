@@ -1,23 +1,10 @@
 
-        int foo(){
-            if(true)
-            {
-                int i;
-                for(i=0;i<10;i=i+1)
-                {
-                    break;
+            int main() {
+                int n;
+                if (n = 0) {
+                    putInt(0);
                 }
-                return 1;
+                putString("Gia tri lap phuong"); putInt(n*n*n);
+                return 0;
             }
-            else
-                do
-                    if(true)
-                        return 2;
-                    else
-                        return 3;
-                while(true);
-        }
-        float main(){
-            return foo();
-        }
         

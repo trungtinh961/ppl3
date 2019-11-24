@@ -1,13 +1,11 @@
 
-        int main(){
-            int a;
-            {
-                int a;
-                {
-                    int a;
-                    return b;
-                }
-            }
-        }
-        int b;
+            int foo() {
+                a = false;
+                main = 10;
+                do {
+                    if (b) a; 
+                    continue;
+                } while !a;
+            } 
+            int main;  
         
