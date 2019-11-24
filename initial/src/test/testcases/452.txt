@@ -1,9 +1,14 @@
 
-        string hello(string str){
-            return str;
-        }
-        int main(){
-            hello("Hi");
-            {{break;}}
-        }
+            int[] foo(int a) {
+                int b[5];
+                return b;
+            }
+            void main(float a, int b, int c) {
+                int x[5], y[5];
+                boolean d;
+                for(b = 1; b >= 0; b = b + 1) {
+                    foo(2)[3+c] = x[y[2]] +3;
+                    d = foo(2)[1];
+                }
+            }
         

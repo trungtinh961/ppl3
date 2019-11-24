@@ -1,5 +1,7 @@
 
-        void main(){
-            break;
-        }
+           int main(float a, int b, boolean c) {
+                for(b = 1; b >= 0; b = b + 1) {
+                    c = b * 10;
+                }
+            }
         

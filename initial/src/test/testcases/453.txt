@@ -1,11 +1,12 @@
 
-        void main(){
-            if (true)
-                {
-                    {
-                        if (false)
-                            break;
-                    }
+            int foo(int a, int b){
+                string str;
+                boolean flag;
+                return a + b * 100;
+            }
+            void main(float a, int b, boolean c) {
+                if (c && false) {
+                    foo(b);
                 }
-        }
+            }
         

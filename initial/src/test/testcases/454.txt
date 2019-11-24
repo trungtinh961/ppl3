@@ -1,11 +1,13 @@
 
-        boolean foo(){
-            return true;
-        }
-        int foo1(){
-            return 1;
-        }
-        void main(){
-            break;
-        }
+            int foo(int a, int b){
+                string str;
+                boolean flag;
+                return a + b * 100;
+            }
+            void main(float a, int b, boolean c) {
+                int x, y;
+                if (c && false) {
+                    foo(b,1,2);
+                }
+            }
         

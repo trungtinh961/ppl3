@@ -613,7 +613,7 @@ class CheckSuite(unittest.TestCase):
         expect = "Type Mismatch In Expression: BinaryOp(!=,Id(b),Id(c))"
         self.assertTrue(TestChecker.test(input,expect,444))
 
-    def test_TypeMismatchExpr_binary_less_grater(self):
+    def test_TypeMismatchExpr_binary_less_greater(self):
         input = """
            int main(float a, int b, float c) {
                 do {
@@ -685,5 +685,164 @@ class CheckSuite(unittest.TestCase):
         """
         expect = "Type Mismatch In Expression: BinaryOp(=,Id(c),BooleanLiteral(true))"
         self.assertTrue(TestChecker.test(input,expect,449))
+
+    def test_TypeMismatchExpr_assign_bool_int(self):
+        input = """
+           int main(float a, int b, boolean c) {
+                for(b = 1; b >= 0; b = b + 1) {
+                    c = b * 10;
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: BinaryOp(=,Id(c),BinaryOp(*,Id(b),IntLiteral(10)))"
+        self.assertTrue(TestChecker.test(input,expect,450))
+
+    def test_TypeMismatchExpr_assign_string_int(self):
+        input = """
+           int main(float a, int b, string c) {
+                for(b = 1; b >= 0; b = b + 1) {
+                    c = b * 10;
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: BinaryOp(=,Id(c),BinaryOp(*,Id(b),IntLiteral(10)))"
+        self.assertTrue(TestChecker.test(input,expect,451))
+
+    def test_TypeMismatchExpr_assign_bool_arraypointer(self):
+        input = """
+            int[] foo(int a) {
+                int b[5];
+                return b;
+            }
+            void main(float a, int b, int c) {
+                int x[5], y[5];
+                boolean d;
+                for(b = 1; b >= 0; b = b + 1) {
+                    foo(2)[3+c] = x[y[2]] +3;
+                    d = foo(2)[1];
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: BinaryOp(=,Id(d),ArrayCell(CallExpr(Id(foo),[IntLiteral(2)]),IntLiteral(1)))"
+        self.assertTrue(TestChecker.test(input,expect,452))
+
+
+    def test_TypeMismatchExpr_funcall_less_param(self):
+        input = """
+            int foo(int a, int b){
+                string str;
+                boolean flag;
+                return a + b * 100;
+            }
+            void main(float a, int b, boolean c) {
+                if (c && false) {
+                    foo(b);
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(b)])"
+        self.assertTrue(TestChecker.test(input,expect,453))
+
+    def test_TypeMismatchExpr_funcall_many_param(self):
+        input = """
+            int foo(int a, int b){
+                string str;
+                boolean flag;
+                return a + b * 100;
+            }
+            void main(float a, int b, boolean c) {
+                int x, y;
+                if (c && false) {
+                    foo(b,1,2);
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[Id(b),IntLiteral(1),IntLiteral(2)])"
+        self.assertTrue(TestChecker.test(input,expect,454))
+
+    def test_TypeMismatchExpr_funcall_pass_lhs(self):
+        input = """
+            int foo(int a, int b){
+                string str;
+                boolean flag;
+                return a + b * 100;
+            }
+            void main(float a, int b, boolean c) {
+                int x, y;
+                if (c && false) {
+                    foo(x*y/10+15*20*1.3, foo(1,2));
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[BinaryOp(+,BinaryOp(/,BinaryOp(*,Id(x),Id(y)),IntLiteral(10)),BinaryOp(*,BinaryOp(*,IntLiteral(15),IntLiteral(20)),FloatLiteral(1.3))),CallExpr(Id(foo),[IntLiteral(1),IntLiteral(2)])])"
+        self.assertTrue(TestChecker.test(input,expect,455))
+
+    def test_TypeMismatchExpr_funcall_pass_lhs_bool_string(self):
+        input = """
+            int foo(boolean a, string b){
+                string str;
+                boolean flag;
+                return 10;
+            }
+            void main(float a, int b, boolean c) {
+                int x, y;
+                if (c && false) {
+                    foo(true && (c || (x > y)), foo(true,"2"));
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[BinaryOp(&&,BooleanLiteral(true),BinaryOp(||,Id(c),BinaryOp(>,Id(x),Id(y)))),CallExpr(Id(foo),[BooleanLiteral(true),StringLiteral(2)])])"
+        self.assertTrue(TestChecker.test(input,expect,456))
+
+    def test_TypeMismatchExpr_funcall_pass_lhs_array(self):
+        input = """
+            int[] foo(int a[], int b){
+                string str;
+                boolean flag;
+                return a;
+            }
+            void main(float a, int b, boolean c) {
+                int x[5], y[10];
+                if (c && false) {
+                    foo(foo(x,b),c);
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[CallExpr(Id(foo),[Id(x),Id(b)]),Id(c)])"
+        self.assertTrue(TestChecker.test(input,expect,457))
+
+    def test_TypeMismatchExpr_funcall_pass_lhs_array_pass_arraypointer(self):
+        input = """
+            float[] foo(int a[], int b[]){
+                string str;
+                float c[3];
+                str = "PPL 3";
+                boolean flag;
+                flag = true || false;
+                return c;
+            }
+            void main(int argc, int argv[]) {
+                int x[0], y[5];
+                float a[10];
+                if (true && false) {
+                    foo(foo(x,y),a);
+                }
+            }
+        """
+        expect = "Type Mismatch In Expression: CallExpr(Id(foo),[CallExpr(Id(foo),[Id(x),Id(y)]),Id(a)])"
+        self.assertTrue(TestChecker.test(input,expect,458))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

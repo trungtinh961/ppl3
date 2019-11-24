@@ -1,11 +1,17 @@
 
-        void main(){
-            if (true)
-                {
-                    {
-                        if (false)
-                            continue;
-                    }
+            float[] foo(int a[], int b[]){
+                string str;
+                float c[3];
+                str = "PPL 3";
+                boolean flag;
+                flag = true || false;
+                return c;
+            }
+            void main(int argc, int argv[]) {
+                int x[0], y[5];
+                float a[10];
+                if (true && false) {
+                    foo(foo(x,y),a);
                 }
-        }
+            }
         
